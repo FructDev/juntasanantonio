@@ -2,11 +2,16 @@ import { prisma } from "@/lib/prisma";
 import { guardarSiteConfig } from "@/app/actions";
 
 export default async function SiteConfigPage() {
-  const config = await prisma.siteConfig.upsert({
-    where: { id: 1 },
-    update: {},
-    create: { id: 1 },
-  });
+  const [config, proyectosActivos] = await Promise.all([
+    prisma.siteConfig.upsert({
+      where: { id: 1 },
+      update: {},
+      create: { id: 1 },
+    }),
+    prisma.obra.count({
+      where: { activo: true, estado: { in: ["PLANIFICADA", "EN_CURSO"] } },
+    }),
+  ]);
 
   return (
     <div className="max-w-xl mx-auto">
@@ -17,6 +22,15 @@ export default async function SiteConfigPage() {
         <p className="text-sm mt-1" style={{ color: "#5a6678" }}>
           Estadísticas visibles en la portada y período de gestión.
         </p>
+      </div>
+
+      {/* Info box */}
+      <div
+        className="rounded-xl px-4 py-3 mb-6 text-xs leading-relaxed"
+        style={{ background: "#f0f5ff", border: "1px solid #c7d9f5", color: "#003876" }}
+      >
+        <strong>Proyectos activos</strong> se calcula automáticamente desde la sección Obras
+        (cuenta las obras en estado <em>Planificada</em> o <em>En curso</em>). Actualmente: <strong>{proyectosActivos}</strong>.
       </div>
 
       <form
@@ -36,14 +50,10 @@ export default async function SiteConfigPage() {
             className="w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none focus:ring-2"
             style={{ borderColor: "#d1d9e6", background: "#fafbfc" }}
           />
-          <p className="text-xs mt-1" style={{ color: "#8a95a3" }}>
-            Ejemplo: 2026–2028
-          </p>
         </div>
 
         <div className="h-px" style={{ background: "#f0f4f8" }} />
 
-        {/* Stats */}
         <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#8a95a3" }}>
           Estadísticas (portada)
         </p>
@@ -64,12 +74,12 @@ export default async function SiteConfigPage() {
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1.5" style={{ color: "#374151" }}>
-              Años activos
+              Habitantes
             </label>
             <input
               type="number"
-              name="anosActivos"
-              defaultValue={config.anosActivos}
+              name="habitantes"
+              defaultValue={config.habitantes}
               min={0}
               className="w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none focus:ring-2"
               style={{ borderColor: "#d1d9e6", background: "#fafbfc" }}
@@ -77,12 +87,12 @@ export default async function SiteConfigPage() {
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1.5" style={{ color: "#374151" }}>
-              Proyectos
+              Años activos
             </label>
             <input
               type="number"
-              name="proyectos"
-              defaultValue={config.proyectos}
+              name="anosActivos"
+              defaultValue={config.anosActivos}
               min={0}
               className="w-full rounded-xl border px-3.5 py-2.5 text-sm outline-none focus:ring-2"
               style={{ borderColor: "#d1d9e6", background: "#fafbfc" }}

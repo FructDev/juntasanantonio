@@ -1,11 +1,16 @@
 import { prisma } from "@/lib/prisma";
 
 export default async function Hero() {
-  const config = await prisma.siteConfig.upsert({
-    where: { id: 1 },
-    update: {},
-    create: { id: 1 },
-  });
+  const [config, proyectosActivos] = await Promise.all([
+    prisma.siteConfig.upsert({
+      where: { id: 1 },
+      update: {},
+      create: { id: 1 },
+    }),
+    prisma.obra.count({
+      where: { activo: true, estado: { in: ["PLANIFICADA", "EN_CURSO"] } },
+    }),
+  ]);
 
   return (
     <section
@@ -109,11 +114,12 @@ export default async function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-10 pb-2">
+            <div className="flex flex-wrap gap-8 pb-2">
               {[
-                { n: config.familias, l: "Familias" },
+                { n: config.familias,    l: "Familias" },
+                { n: config.habitantes,  l: "Habitantes" },
                 { n: config.anosActivos, l: "Años activos" },
-                { n: config.proyectos, l: "Proyectos" },
+                { n: proyectosActivos,   l: "Proyectos activos" },
               ].map(({ n, l }) => (
                 <div key={l}>
                   <div className="text-3xl font-black text-white leading-none" style={{ letterSpacing: "-0.04em" }}>

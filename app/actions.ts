@@ -287,12 +287,21 @@ export async function eliminarFinanza(id: number) {
 
 export async function agregarGastoItem(fd: FormData) {
   await requireAdmin();
+  const finanzaId = Number(fd.get("finanzaId"));
+  const monto     = Number(fd.get("monto"));
+
+  // Calcula el porcentaje automáticamente respecto al total de gastos del mes
+  const finanza = await prisma.finanzaResumen.findUnique({ where: { id: finanzaId } });
+  const porcentaje = finanza && finanza.gastos > 0
+    ? Math.round((monto / finanza.gastos) * 100)
+    : 0;
+
   await prisma.gastoItem.create({
     data: {
       nombre: String(fd.get("nombre")),
-      monto: Number(fd.get("monto")),
-      porcentaje: Number(fd.get("porcentaje")),
-      finanzaId: Number(fd.get("finanzaId")),
+      monto,
+      porcentaje,
+      finanzaId,
     },
   });
   revalidatePath("/");
@@ -401,8 +410,8 @@ export async function guardarSiteConfig(fd: FormData) {
   await requireAdmin();
   const data = {
     familias:    Number(fd.get("familias")    ?? 0),
+    habitantes:  Number(fd.get("habitantes")  ?? 0),
     anosActivos: Number(fd.get("anosActivos") ?? 0),
-    proyectos:   Number(fd.get("proyectos")   ?? 0),
     gestion:     String(fd.get("gestion")     ?? "2026–2028").trim(),
   };
   await prisma.siteConfig.upsert({
