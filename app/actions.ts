@@ -208,7 +208,7 @@ export async function subirDocumento(fd: FormData) {
 
   if (!nombre || !categoria) return { ok: false, error: "Faltan campos" };
 
-  let contenido: Uint8Array | undefined;
+  let contenido: Uint8Array<ArrayBuffer> | undefined;
   let mimeType = "";
   let nombreArchivo = "";
   let tamano = "";
