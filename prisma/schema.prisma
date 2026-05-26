@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Aviso {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String
+  tipo        String   // URGENTE | INFORMACION | EVENTO | ALERTA | ASAMBLEA
+  fecha       DateTime @default(now())
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Reporte {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  telefono    String?
+  tipo        String
+  ubicacion   String
+  descripcion String
+  estado      String   @default("PENDIENTE") // PENDIENTE | EN_PROCESO | RESUELTO
+  createdAt   DateTime @default(now())
+}
+
+model Documento {
+  id            Int      @id @default(autoincrement())
+  nombre        String
+  categoria     String   // ACTA | CARTA | FINANZA
+  contenido     Bytes?
+  mimeType      String   @default("")
+  nombreArchivo String   @default("")
+  tamano        String   @default("")
+  fecha         DateTime @default(now())
+  activo        Boolean  @default(true)
+}
+
+model DirectivaMiembro {
+  id        Int    @id @default(autoincrement())
+  nombre    String
+  cargo     String
+  iniciales String
+  color     String // azul | rojo | cielo
+  telefono  String
+  orden     Int    @default(0)
+}
+
+model FinanzaResumen {
+  id               Int          @id @default(autoincrement())
+  mes              String
+  anio             Int
+  saldo            Float
+  ingresos         Float
+  gastos           Float
+  familiasTotales  Int
+  familiasPagadas  Int
+  gastoItems       GastoItem[]
+  createdAt        DateTime     @default(now())
+}
+
+model GastoItem {
+  id         Int            @id @default(autoincrement())
+  nombre     String
+  monto      Float
+  porcentaje Int
+  finanza    FinanzaResumen @relation(fields: [finanzaId], references: [id])
+  finanzaId  Int
+}
+
+// ── NUEVOS MODELOS ──
+
+model Obra {
+  id          Int       @id @default(autoincrement())
+  titulo      String
+  descripcion String
+  estado      String    @default("EN_CURSO") // PLANIFICADA | EN_CURSO | COMPLETADA
+  costo       Float?
+  inicio      DateTime?
+  fin         DateTime?
+  activo      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+}
+
+model Vecino {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  cedula    String?
+  telefono  String?
+  email     String?
+  calle     String
+  numero    String   @default("")
+  activo    Boolean  @default(true)
+  cuotas    Cuota[]
+  createdAt DateTime @default(now())
+}
+
+model Cuota {
+  id        Int       @id @default(autoincrement())
+  vecino    Vecino    @relation(fields: [vecinoId], references: [id])
+  vecinoId  Int
+  mes       String
+  anio      Int
+  pagado    Boolean   @default(false)
+  fechaPago DateTime?
+  monto     Float     @default(500)
+
+  @@unique([vecinoId, mes, anio])
+}
+
+model Sugerencia {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  mensaje   String
+  leido     Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model DonacionConfig {
+  id              Int     @id @default(autoincrement())
+  // Monetaria
+  tieneCuenta     Boolean @default(false)
+  banco           String  @default("")
+  tipoCuenta      String  @default("")
+  numeroCuenta    String  @default("")
+  titular         String  @default("")
+  whatsappConfirm String  @default("")
+  // En especie
+  itemsNecesarios String  @default("") // separados por coma
+  lugarEntrega    String  @default("")
+  horarioEntrega  String  @default("")
+  contactoEspecie String  @default("")
+}

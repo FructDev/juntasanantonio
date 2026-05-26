@@ -1,0 +1,73 @@
+<svg viewBox="0 0 120 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo Junta de Vecinos Barrio San Antonio">
+  <title>Escudo Junta de Vecinos · Barrio San Antonio · San Cristóbal</title>
+  <defs>
+    <!-- Shield clip (inner) -->
+    <clipPath id="sc">
+      <path d="M60,9 Q34,9 19,22 L19,87 Q19,129 60,143 Q101,129 101,87 L101,22 Q86,9 60,9 Z"/>
+    </clipPath>
+    <!-- Gold gradient for border -->
+    <linearGradient id="gld" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4d96a"/>
+      <stop offset="50%" stop-color="#d4a020"/>
+      <stop offset="100%" stop-color="#a87010"/>
+    </linearGradient>
+    <!-- Star shape (outer r=4.5, inner r=1.8) -->
+  </defs>
+
+  <!-- Gold outer shape -->
+  <path d="M60,4 Q30,4 13,18 L13,87 Q13,133 60,149 Q107,133 107,87 L107,18 Q90,4 60,4 Z"
+        fill="url(#gld)"/>
+
+  <!-- Clipped content -->
+  <g clip-path="url(#sc)">
+    <!-- Quadrant fills -->
+    <rect x="19" y="9"  width="41" height="66" fill="#003580"/>  <!-- TL blue -->
+    <rect x="60" y="9"  width="41" height="66" fill="#bf0d27"/>  <!-- TR red  -->
+    <rect x="19" y="75" width="41" height="68" fill="#bf0d27"/>  <!-- BL red  -->
+    <rect x="60" y="75" width="41" height="68" fill="#003580"/>  <!-- BR blue -->
+
+    <!-- White cross -->
+    <rect x="19" y="69" width="82" height="12" fill="white"/>    <!-- horizontal -->
+    <rect x="54" y="9"  width="12" height="134" fill="white"/>   <!-- vertical   -->
+
+    <!-- Small 5-pt stars (r_outer=4.5, r_inner=1.8), one per quadrant, white 70% opacity -->
+    <!-- Star polygon points centered at origin -->
+    <!-- TL (blue) at (36,38) -->
+    <polygon transform="translate(36,38)" opacity="0.7" fill="white"
+      points="0,-4.5 1.06,-1.46 4.28,-1.39 1.71,0.56 2.65,3.64 0,1.7 -2.65,3.64 -1.71,0.56 -4.28,-1.39 -1.06,-1.46"/>
+    <!-- TR (red) at (84,38) -->
+    <polygon transform="translate(84,38)" opacity="0.55" fill="white"
+      points="0,-4.5 1.06,-1.46 4.28,-1.39 1.71,0.56 2.65,3.64 0,1.7 -2.65,3.64 -1.71,0.56 -4.28,-1.39 -1.06,-1.46"/>
+    <!-- BL (red) at (36,105) -->
+    <polygon transform="translate(36,105)" opacity="0.55" fill="white"
+      points="0,-4.5 1.06,-1.46 4.28,-1.39 1.71,0.56 2.65,3.64 0,1.7 -2.65,3.64 -1.71,0.56 -4.28,-1.39 -1.06,-1.46"/>
+    <!-- BR (blue) at (84,105) -->
+    <polygon transform="translate(84,105)" opacity="0.7" fill="white"
+      points="0,-4.5 1.06,-1.46 4.28,-1.39 1.71,0.56 2.65,3.64 0,1.7 -2.65,3.64 -1.71,0.56 -4.28,-1.39 -1.06,-1.46"/>
+
+    <!-- Center white circle -->
+    <circle cx="60" cy="75" r="17" fill="white"/>
+    <circle cx="60" cy="75" r="17" fill="none" stroke="#d4a020" stroke-width="0.8"/>
+
+    <!-- House icon (blue) inside circle -->
+    <!-- Roof triangle -->
+    <polygon points="60,62 49,73 71,73" fill="#003580"/>
+    <!-- Walls -->
+    <rect x="51" y="73" width="18" height="12" fill="#003580"/>
+    <!-- Door (white cutout) -->
+    <rect x="57" y="77" width="6" height="8" rx="1" fill="white"/>
+    <!-- Small chimney -->
+    <rect x="65" y="63" width="3" height="7" fill="#003580"/>
+    <!-- Small windows (white) -->
+    <rect x="53" y="74" width="4" height="4" rx="0.5" fill="white"/>
+    <rect x="63" y="74" width="4" height="4" rx="0.5" fill="white"/>
+  </g>
+
+  <!-- Gold border stroke (on top of everything) -->
+  <path d="M60,4 Q30,4 13,18 L13,87 Q13,133 60,149 Q107,133 107,87 L107,18 Q90,4 60,4 Z"
+        fill="none" stroke="#8a6808" stroke-width="1.5"/>
+
+  <!-- Inner fine white line for depth -->
+  <path d="M60,11 Q35,11 21,24 L21,87 Q21,127 60,140 Q99,127 99,87 L99,24 Q85,11 60,11 Z"
+        fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1"/>
+</svg>
