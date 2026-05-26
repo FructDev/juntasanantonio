@@ -395,6 +395,25 @@ export async function guardarDonacionConfig(fd: FormData) {
   redirect("/admin/donaciones");
 }
 
+// ── SITECONFIG ──
+
+export async function guardarSiteConfig(fd: FormData) {
+  await requireAdmin();
+  const data = {
+    familias:    Number(fd.get("familias")    ?? 0),
+    anosActivos: Number(fd.get("anosActivos") ?? 0),
+    proyectos:   Number(fd.get("proyectos")   ?? 0),
+    gestion:     String(fd.get("gestion")     ?? "2026–2028").trim(),
+  };
+  await prisma.siteConfig.upsert({
+    where: { id: 1 },
+    update: data,
+    create: { id: 1, ...data },
+  });
+  revalidatePath("/");
+  redirect("/admin/siteconfig");
+}
+
 // ── INTERNAL ──
 
 async function requireAdmin() {

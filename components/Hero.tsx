@@ -1,4 +1,12 @@
-export default function Hero() {
+import { prisma } from "@/lib/prisma";
+
+export default async function Hero() {
+  const config = await prisma.siteConfig.upsert({
+    where: { id: 1 },
+    update: {},
+    create: { id: 1 },
+  });
+
   return (
     <section
       className="relative overflow-hidden"
@@ -26,7 +34,7 @@ export default function Hero() {
             <div className="flex items-center gap-1.5 text-xs mb-8" style={{ color: "rgba(255,255,255,0.4)" }}>
               <span>República Dominicana</span>
               <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
-              <span>San Cristóbal</span>
+              <span>San Gregorio de Nigua</span>
               <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
               <span style={{ color: "rgba(255,255,255,0.75)" }}>Barrio San Antonio</span>
             </div>
@@ -45,17 +53,17 @@ export default function Hero() {
               className="text-base leading-relaxed mb-8 max-w-lg"
               style={{ color: "rgba(255,255,255,0.65)" }}
             >
-              Portal comunitario oficial del Barrio San Antonio, sector Lava Pie,
-              municipio San Cristóbal. Reporta problemas, consulta documentos y mantente
-              al día con los avisos de la directiva.
+              Portal comunitario oficial del Barrio San Antonio,
+              San Gregorio de Nigua, Provincia San Cristóbal. Reporta problemas,
+              consulta documentos y mantente al día con los avisos de la directiva.
             </p>
 
             {/* Tags row */}
             <div className="flex flex-wrap gap-2 mb-10">
               {[
-                { dot: "#5db8ff", label: "Sector Lava Pie" },
-                { dot: "#5db8ff", label: "San Cristóbal" },
-                { dot: "#ffd066", label: "Gestión 2023–2025" },
+                { dot: "#5db8ff", label: "San Antonio" },
+                { dot: "#5db8ff", label: "San Gregorio de Nigua" },
+                { dot: "#ffd066", label: `Gestión ${config.gestion}` },
               ].map((tag) => (
                 <span
                   key={tag.label}
@@ -103,9 +111,9 @@ export default function Hero() {
             {/* Stats */}
             <div className="flex gap-10 pb-2">
               {[
-                { n: "180+", l: "Familias" },
-                { n: "38", l: "Años activos" },
-                { n: "12", l: "Proyectos 2025" },
+                { n: config.familias, l: "Familias" },
+                { n: config.anosActivos, l: "Años activos" },
+                { n: config.proyectos, l: "Proyectos" },
               ].map(({ n, l }) => (
                 <div key={l}>
                   <div className="text-3xl font-black text-white leading-none" style={{ letterSpacing: "-0.04em" }}>
@@ -150,7 +158,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
-                Barrio San Antonio · Sector Lava Pie
+                Barrio San Antonio · San Gregorio de Nigua
               </div>
               <a
                 href="https://www.openstreetmap.org/?mlat=18.4055&mlon=-70.1095#map=16/18.4055/-70.1095"

@@ -44,7 +44,7 @@ export default function Header() {
                 Junta de Vecinos
               </div>
               <div className="text-xs leading-none mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
-                Barrio San Antonio · San Cristóbal
+                Barrio San Antonio · San Gregorio de Nigua
               </div>
             </div>
           </Link>

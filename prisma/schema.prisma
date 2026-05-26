@@ -136,3 +136,11 @@ model DonacionConfig {
   horarioEntrega  String  @default("")
   contactoEspecie String  @default("")
 }
+
+model SiteConfig {
+  id          Int    @id @default(1)
+  familias    Int    @default(0)
+  anosActivos Int    @default(0)
+  proyectos   Int    @default(0)
+  gestion     String @default("2026–2028")
+}
