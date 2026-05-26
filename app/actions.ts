@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import nodemailer from "nodemailer";
+import { subirFoto, eliminarFoto } from "@/lib/cloudinary";
 
 export async function enviarReporte(fd: FormData) {
   const nombre = String(fd.get("nombre") ?? "").trim();
@@ -89,14 +90,14 @@ export async function crearAviso(fd: FormData) {
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/avisos");
+  redirect("/admin/avisos");
 }
 
 export async function eliminarAviso(id: number) {
   await requireAdmin();
   await prisma.aviso.update({ where: { id }, data: { activo: false } });
   revalidatePath("/");
-  revalidatePath("/admin/avisos");
+  redirect("/admin/avisos");
 }
 
 // ── REPORTES ──
@@ -104,7 +105,8 @@ export async function eliminarAviso(id: number) {
 export async function actualizarEstadoReporte(id: number, estado: string) {
   await requireAdmin();
   await prisma.reporte.update({ where: { id }, data: { estado } });
-  revalidatePath("/admin/reportes");
+  revalidatePath("/");
+  redirect("/admin/reportes");
 }
 
 // ── OBRAS ──
@@ -126,21 +128,21 @@ export async function crearObra(fd: FormData) {
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/obras");
+  redirect("/admin/obras");
 }
 
 export async function actualizarEstadoObra(id: number, estado: string) {
   await requireAdmin();
   await prisma.obra.update({ where: { id }, data: { estado } });
   revalidatePath("/");
-  revalidatePath("/admin/obras");
+  redirect("/admin/obras");
 }
 
 export async function eliminarObra(id: number) {
   await requireAdmin();
   await prisma.obra.update({ where: { id }, data: { activo: false } });
   revalidatePath("/");
-  revalidatePath("/admin/obras");
+  redirect("/admin/obras");
 }
 
 // ── VECINOS / CUOTAS ──
@@ -156,7 +158,7 @@ export async function crearVecino(fd: FormData) {
       numero: String(fd.get("numero") ?? "").trim(),
     },
   });
-  revalidatePath("/admin/vecinos");
+  redirect("/admin/vecinos");
 }
 
 export async function toggleCuota(vecinoId: number, mes: string, anio: number) {
@@ -175,13 +177,13 @@ export async function toggleCuota(vecinoId: number, mes: string, anio: number) {
       data: { vecinoId, mes, anio, pagado: true, fechaPago: new Date() },
     });
   }
-  revalidatePath("/admin/vecinos");
+  redirect("/admin/vecinos");
 }
 
 export async function eliminarVecino(id: number) {
   await requireAdmin();
   await prisma.vecino.update({ where: { id }, data: { activo: false } });
-  revalidatePath("/admin/vecinos");
+  redirect("/admin/vecinos");
 }
 
 // ── SUGERENCIAS ──
@@ -189,13 +191,13 @@ export async function eliminarVecino(id: number) {
 export async function marcarSugerenciaLeida(id: number) {
   await requireAdmin();
   await prisma.sugerencia.update({ where: { id }, data: { leido: true } });
-  revalidatePath("/admin/sugerencias");
+  redirect("/admin/sugerencias");
 }
 
 export async function eliminarSugerencia(id: number) {
   await requireAdmin();
   await prisma.sugerencia.delete({ where: { id } });
-  revalidatePath("/admin/sugerencias");
+  redirect("/admin/sugerencias");
 }
 
 // ── DOCUMENTOS ──
@@ -227,14 +229,14 @@ export async function subirDocumento(fd: FormData) {
     data: { nombre, categoria, contenido, mimeType, nombreArchivo, tamano },
   });
   revalidatePath("/");
-  revalidatePath("/admin/documentos");
+  redirect("/admin/documentos");
 }
 
 export async function eliminarDocumento(id: number) {
   await requireAdmin();
   await prisma.documento.delete({ where: { id } });
   revalidatePath("/");
-  revalidatePath("/admin/documentos");
+  redirect("/admin/documentos");
 }
 
 // ── FINANZAS ──
@@ -253,7 +255,7 @@ export async function crearFinanza(fd: FormData) {
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/finanzas");
+  redirect("/admin/finanzas");
 }
 
 export async function actualizarFinanza(fd: FormData) {
@@ -272,7 +274,7 @@ export async function actualizarFinanza(fd: FormData) {
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/finanzas");
+  redirect("/admin/finanzas");
 }
 
 export async function eliminarFinanza(id: number) {
@@ -280,7 +282,7 @@ export async function eliminarFinanza(id: number) {
   await prisma.gastoItem.deleteMany({ where: { finanzaId: id } });
   await prisma.finanzaResumen.delete({ where: { id } });
   revalidatePath("/");
-  revalidatePath("/admin/finanzas");
+  redirect("/admin/finanzas");
 }
 
 export async function agregarGastoItem(fd: FormData) {
@@ -294,57 +296,76 @@ export async function agregarGastoItem(fd: FormData) {
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/finanzas");
+  redirect("/admin/finanzas");
 }
 
 export async function eliminarGastoItem(id: number) {
   await requireAdmin();
   await prisma.gastoItem.delete({ where: { id } });
   revalidatePath("/");
-  revalidatePath("/admin/finanzas");
+  redirect("/admin/finanzas");
 }
 
 // ── DIRECTIVA ──
 
 export async function crearMiembro(fd: FormData) {
   await requireAdmin();
+  const foto = fd.get("foto") as File | null;
+  let fotoUrl = "";
+  if (foto && foto.size > 0) {
+    fotoUrl = await subirFoto(foto);
+  }
   const last = await prisma.directivaMiembro.findFirst({ orderBy: { orden: "desc" } });
   await prisma.directivaMiembro.create({
     data: {
-      nombre: String(fd.get("nombre")),
-      cargo: String(fd.get("cargo")),
+      nombre:    String(fd.get("nombre")),
+      cargo:     String(fd.get("cargo")),
       iniciales: String(fd.get("iniciales")).toUpperCase().slice(0, 3),
-      color: String(fd.get("color")),
-      telefono: String(fd.get("telefono")),
+      color:     String(fd.get("color")),
+      telefono:  String(fd.get("telefono")),
+      fotoUrl,
       orden: (last?.orden ?? 0) + 1,
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/directiva");
+  redirect("/admin/directiva");
 }
 
 export async function actualizarMiembro(fd: FormData) {
   await requireAdmin();
   const id = Number(fd.get("id"));
+  const foto = fd.get("foto") as File | null;
+
+  // Si sube una foto nueva, reemplaza la anterior en Cloudinary
+  let fotoUrl: string | undefined;
+  if (foto && foto.size > 0) {
+    const existing = await prisma.directivaMiembro.findUnique({ where: { id }, select: { fotoUrl: true } });
+    if (existing?.fotoUrl) await eliminarFoto(existing.fotoUrl);
+    fotoUrl = await subirFoto(foto);
+  }
+
   await prisma.directivaMiembro.update({
     where: { id },
     data: {
-      nombre: String(fd.get("nombre")),
-      cargo: String(fd.get("cargo")),
+      nombre:    String(fd.get("nombre")),
+      cargo:     String(fd.get("cargo")),
       iniciales: String(fd.get("iniciales")).toUpperCase().slice(0, 3),
-      color: String(fd.get("color")),
-      telefono: String(fd.get("telefono")),
+      color:     String(fd.get("color")),
+      telefono:  String(fd.get("telefono")),
+      ...(fotoUrl !== undefined && { fotoUrl }),
     },
   });
   revalidatePath("/");
-  revalidatePath("/admin/directiva");
+  redirect("/admin/directiva");
 }
 
 export async function eliminarMiembro(id: number) {
   await requireAdmin();
+  const m = await prisma.directivaMiembro.findUnique({ where: { id }, select: { fotoUrl: true } });
+  if (m?.fotoUrl) await eliminarFoto(m.fotoUrl);
   await prisma.directivaMiembro.delete({ where: { id } });
   revalidatePath("/");
-  revalidatePath("/admin/directiva");
+  redirect("/admin/directiva");
 }
 
 // ── DONACIONES ──
@@ -371,7 +392,7 @@ export async function guardarDonacionConfig(fd: FormData) {
     await prisma.donacionConfig.create({ data });
   }
   revalidatePath("/");
-  revalidatePath("/admin/donaciones");
+  redirect("/admin/donaciones");
 }
 
 // ── INTERNAL ──

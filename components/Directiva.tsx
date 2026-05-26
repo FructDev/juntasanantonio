@@ -64,16 +64,25 @@ export default async function Directiva() {
                   </div>
                 )}
 
-                {/* Avatar */}
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center font-black text-white mx-auto mb-3 text-lg transition-transform group-hover:scale-105"
-                  style={{
-                    background: col.avatar,
-                    boxShadow: `0 4px 12px ${col.avatar}33`,
-                  }}
-                >
-                  {m.iniciales}
-                </div>
+                {/* Avatar — foto real o iniciales */}
+                {m.fotoUrl ? (
+                  <img
+                    src={m.fotoUrl}
+                    alt={m.nombre}
+                    className="w-14 h-14 rounded-full object-cover mx-auto mb-3 transition-transform group-hover:scale-105"
+                    style={{ boxShadow: `0 4px 12px ${col.avatar}33` }}
+                  />
+                ) : (
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center font-black text-white mx-auto mb-3 text-lg transition-transform group-hover:scale-105"
+                    style={{
+                      background: col.avatar,
+                      boxShadow: `0 4px 12px ${col.avatar}33`,
+                    }}
+                  >
+                    {m.iniciales}
+                  </div>
+                )}
 
                 {/* Cargo */}
                 <div

@@ -83,6 +83,21 @@ export default async function AdminDirectiva() {
               </select>
             </div>
           </div>
+          <div className="mb-4">
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
+              Foto (opcional)
+            </label>
+            <input
+              name="foto"
+              type="file"
+              accept="image/*"
+              className="w-full text-sm file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              style={{ color: "#5a6678" }}
+            />
+            <p className="text-xs mt-1" style={{ color: "#b0bac5" }}>
+              Se recortará automáticamente en cuadrado centrado en la cara · Máx. 5 MB
+            </p>
+          </div>
           <div className="flex justify-end">
             <button
               type="submit"
@@ -146,7 +161,6 @@ export default async function AdminDirectiva() {
                           "use server";
                           await eliminarMiembro(m.id);
                         }}
-                        onClick={(e) => e.stopPropagation()}
                       >
                         <button
                           type="submit"
@@ -205,6 +219,30 @@ export default async function AdminDirectiva() {
                           ))}
                         </select>
                       </div>
+                    </div>
+                    {/* Foto actual + nuevo upload */}
+                    <div className="mb-4">
+                      {m.fotoUrl && (
+                        <div className="flex items-center gap-3 mb-2">
+                          <img
+                            src={m.fotoUrl}
+                            alt={m.nombre}
+                            className="w-12 h-12 rounded-xl object-cover flex-shrink-0"
+                            style={{ border: "2px solid #edf0f5" }}
+                          />
+                          <span className="text-xs" style={{ color: "#8a95a3" }}>Foto actual</span>
+                        </div>
+                      )}
+                      <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
+                        {m.fotoUrl ? "Cambiar foto" : "Agregar foto (opcional)"}
+                      </label>
+                      <input
+                        name="foto"
+                        type="file"
+                        accept="image/*"
+                        className="w-full text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                        style={{ color: "#5a6678" }}
+                      />
                     </div>
                     <div className="flex justify-end">
                       <button

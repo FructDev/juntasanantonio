@@ -47,6 +47,7 @@ model DirectivaMiembro {
   iniciales String
   color     String // azul | rojo | cielo
   telefono  String
+  fotoUrl   String @default("")
   orden     Int    @default(0)
 }
 
