@@ -6,7 +6,7 @@ type Doc = {
   id: number;
   nombre: string;
   categoria: string;
-  url: string;
+  nombreArchivo: string;
   tamano: string;
   fecha: Date;
 };
@@ -96,7 +96,7 @@ export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
       >
         {visible.map((doc, i) => {
           const cfg = catConfig[doc.categoria] ?? catConfig.ACTA;
-          const hasFile = doc.url && doc.url !== "#";
+          const hasFile = !!doc.nombreArchivo;
           return (
             <div
               key={doc.id}
@@ -132,7 +132,7 @@ export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
               {/* Download / unavailable */}
               {hasFile ? (
                 <a
-                  href={doc.url}
+                  href={`/api/documentos/${doc.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg transition-all hover:-translate-y-px flex-shrink-0"

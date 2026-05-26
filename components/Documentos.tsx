@@ -5,6 +5,7 @@ export default async function Documentos() {
   const docs = await prisma.documento.findMany({
     where: { activo: true },
     orderBy: { fecha: "desc" },
+    select: { id: true, nombre: true, categoria: true, nombreArchivo: true, tamano: true, fecha: true },
   });
 
   return (

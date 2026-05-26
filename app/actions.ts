@@ -206,7 +206,7 @@ export async function subirDocumento(fd: FormData) {
   const nombre = String(fd.get("nombre") ?? "").trim();
   const categoria = String(fd.get("categoria") ?? "").trim();
 
-  if (!nombre || !categoria) return { ok: false, error: "Faltan campos" };
+  if (!nombre || !categoria) return;
 
   let contenido: Uint8Array<ArrayBuffer> | undefined;
   let mimeType = "";
@@ -228,7 +228,6 @@ export async function subirDocumento(fd: FormData) {
   });
   revalidatePath("/");
   revalidatePath("/admin/documentos");
-  return { ok: true };
 }
 
 export async function eliminarDocumento(id: number) {

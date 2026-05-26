@@ -69,9 +69,9 @@ export default async function Gestiones() {
           {/* Status summary */}
           <div className="flex gap-3 flex-wrap">
             {[
-              { label: "Pendientes",  value: pendientes,  ...estadoCfg.PENDIENTE  },
-              { label: "En proceso",  value: enProceso,   ...estadoCfg.EN_PROCESO },
-              { label: "Resueltos",   value: resueltos,   ...estadoCfg.RESUELTO   },
+              { titulo: "Pendientes",  value: pendientes,  ...estadoCfg.PENDIENTE  },
+              { titulo: "En proceso",  value: enProceso,   ...estadoCfg.EN_PROCESO },
+              { titulo: "Resueltos",   value: resueltos,   ...estadoCfg.RESUELTO   },
             ].map((s) => (
               <div
                 key={s.label}
@@ -79,7 +79,7 @@ export default async function Gestiones() {
                 style={{ background: s.bg, color: s.color, border: `1px solid ${s.bg}` }}
               >
                 <span className="w-2 h-2 rounded-full" style={{ background: s.dot }} />
-                {s.value} {s.label}
+                {s.value} {s.titulo}
               </div>
             ))}
           </div>
