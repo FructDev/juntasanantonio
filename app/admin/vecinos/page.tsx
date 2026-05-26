@@ -27,7 +27,7 @@ export default async function AdminVecinos() {
 
   return (
     <div>
-      <div className="mb-8 flex items-end justify-between gap-4">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black" style={{ color: "#0e1b2e", letterSpacing: "-0.02em" }}>
             Vecinos y cuotas
@@ -61,8 +61,8 @@ export default async function AdminVecinos() {
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Registrar vecino</div>
         </div>
         <form action={crearVecino} className="p-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-            <div className="lg:col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            <div className="sm:col-span-2 lg:col-span-2">
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Nombre completo <span style={{ color: "#c8102e" }}>*</span>
               </label>
@@ -92,7 +92,7 @@ export default async function AdminVecinos() {
                 style={{ border: "1.5px solid #e2e8f0", color: "#0e1b2e" }}
               />
             </div>
-            <div className="lg:col-span-3">
+            <div className="sm:col-span-2 lg:col-span-3">
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Calle / Sector <span style={{ color: "#c8102e" }}>*</span>
               </label>
@@ -131,6 +131,7 @@ export default async function AdminVecinos() {
         className="bg-white rounded-2xl overflow-hidden"
         style={{ border: "1px solid #edf0f5", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
       >
+
         <div
           className="px-6 py-4 flex items-center justify-between"
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
@@ -143,15 +144,17 @@ export default async function AdminVecinos() {
           </span>
         </div>
 
+        <div className="overflow-x-auto">
         {/* Month header row */}
         {vecinos.length > 0 && (
           <div
             className="px-6 py-2.5 grid text-xs font-semibold"
             style={{
-              gridTemplateColumns: "1fr repeat(6, 60px) 40px",
+              gridTemplateColumns: "minmax(140px,1fr) repeat(6, 52px) 40px",
               borderBottom: "1px solid #f0f4f8",
               background: "#fafbfc",
               color: "#8a95a3",
+              minWidth: 560,
             }}
           >
             <span>Vecino</span>
@@ -169,8 +172,9 @@ export default async function AdminVecinos() {
               key={v.id}
               className="px-6 py-3 grid items-center gap-1"
               style={{
-                gridTemplateColumns: "1fr repeat(6, 60px) 40px",
+                gridTemplateColumns: "minmax(140px,1fr) repeat(6, 52px) 40px",
                 borderBottom: i < vecinos.length - 1 ? "1px solid #f8f9fc" : undefined,
+                minWidth: 560,
               }}
             >
               {/* Name */}
@@ -235,6 +239,8 @@ export default async function AdminVecinos() {
             </div>
           );
         })}
+
+        </div>{/* end overflow-x-auto */}
 
         {vecinos.length === 0 && (
           <div className="py-14 text-center">

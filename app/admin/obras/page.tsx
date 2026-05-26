@@ -48,8 +48,8 @@ export default async function AdminObras() {
         </div>
 
         <form action={crearObra} className="p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="sm:col-span-2">
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Título <span style={{ color: "#c8102e" }}>*</span>
               </label>
@@ -61,7 +61,7 @@ export default async function AdminObras() {
                 style={{ border: "1.5px solid #e2e8f0", color: "#0e1b2e" }}
               />
             </div>
-            <div className="col-span-2">
+            <div className="sm:col-span-2">
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Descripción <span style={{ color: "#c8102e" }}>*</span>
               </label>
@@ -162,7 +162,7 @@ export default async function AdminObras() {
                 <div className="text-sm font-semibold mb-0.5" style={{ color: "#0e1b2e" }}>{obra.titulo}</div>
                 <div className="text-xs leading-relaxed line-clamp-2" style={{ color: "#8a95a3" }}>{obra.descripcion}</div>
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex items-center gap-2 flex-shrink-0 flex-wrap justify-end">
                 <form action={async (fd: FormData) => {
                   "use server";
                   await actualizarEstadoObra(obra.id, String(fd.get("estado")));

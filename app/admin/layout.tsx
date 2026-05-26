@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { adminLogout } from "@/app/actions";
 import Escudo from "@/components/Escudo";
@@ -105,19 +108,36 @@ const navLinks = [
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex" style={{ background: "#f0f4f8" }}>
+
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          style={{ background: "rgba(0,0,0,0.55)" }}
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <aside
-        className="w-60 flex-shrink-0 flex flex-col"
+        className={[
+          "fixed inset-y-0 left-0 z-50 w-64 flex flex-col flex-shrink-0",
+          "md:relative md:w-60 md:translate-x-0",
+          "transition-transform duration-200 ease-in-out",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
+        ].join(" ")}
         style={{
           background: "#0a1628",
           borderRight: "1px solid rgba(255,255,255,0.06)",
         }}
       >
         {/* Brand */}
-        <div className="px-5 py-6">
-          <div className="flex items-center gap-2.5 mb-0.5">
+        <div className="px-5 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
             <Escudo size={32} />
             <div>
               <span className="text-white font-bold text-sm leading-none">
@@ -128,16 +148,28 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </div>
             </div>
           </div>
+          {/* Close button — mobile only */}
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="md:hidden w-8 h-8 flex items-center justify-center rounded-lg"
+            style={{ color: "rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.07)" }}
+            aria-label="Cerrar menú"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
         <div className="mx-4 mb-3 h-px" style={{ background: "rgba(255,255,255,0.07)" }} />
 
         {/* Nav */}
-        <nav className="flex-1 px-3 space-y-0.5">
+        <nav className="flex-1 px-3 space-y-0.5 overflow-y-auto">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
+              onClick={() => setSidebarOpen(false)}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-white/10"
               style={{ color: "rgba(255,255,255,0.55)", textDecoration: "none" }}
             >
@@ -147,7 +179,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
 
-        {/* Footer */}
+        {/* Logout */}
         <div className="px-5 py-5">
           <div className="h-px mb-4" style={{ background: "rgba(255,255,255,0.07)" }} />
           <form action={adminLogout}>
@@ -165,26 +197,42 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
       </aside>
 
-      {/* Main */}
+      {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
+
         {/* Top bar */}
         <header
-          className="flex-shrink-0 flex items-center justify-between px-8 py-4 bg-white"
+          className="flex-shrink-0 flex items-center gap-3 px-4 sm:px-8 py-4 bg-white"
           style={{ borderBottom: "1px solid #e5eaf0" }}
         >
-          <div className="text-sm font-semibold" style={{ color: "#1a2540" }}>
+          {/* Hamburger — mobile only */}
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="md:hidden flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-xl"
+            style={{ background: "#f0f4f8", color: "#003876" }}
+            aria-label="Abrir menú"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <div className="flex-1 text-sm font-semibold" style={{ color: "#1a2540" }}>
             Panel de la Directiva
           </div>
+
           <Link
             href="/"
-            className="text-xs font-medium flex items-center gap-1.5 transition-opacity hover:opacity-70"
+            className="text-xs font-medium flex items-center gap-1.5 transition-opacity hover:opacity-70 whitespace-nowrap"
             style={{ color: "#003876", textDecoration: "none" }}
           >
-            Ver sitio público →
+            <span className="hidden sm:inline">Ver sitio público</span>
+            <span className="sm:hidden">Sitio</span>
+            →
           </Link>
         </header>
 
-        <main className="flex-1 p-8 overflow-auto">{children}</main>
+        <main className="flex-1 p-4 sm:p-8 overflow-auto">{children}</main>
       </div>
     </div>
   );

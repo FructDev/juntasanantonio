@@ -19,7 +19,7 @@ export default async function AdminReportes() {
   return (
     <div>
       {/* Page header */}
-      <div className="mb-8 flex items-end justify-between gap-4">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black" style={{ color: "#0e1b2e", letterSpacing: "-0.02em" }}>
             Reportes de vecinos
@@ -40,13 +40,13 @@ export default async function AdminReportes() {
         style={{ border: "1px solid #edf0f5", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
       >
         <div
-          className="px-6 py-4 grid grid-cols-[1fr_auto] items-center"
+          className="px-6 py-4 flex flex-wrap items-center justify-between gap-3"
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>
             Todos los reportes
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             {Object.entries(estadoStyle).map(([key, st]) => (
               <span key={key} className="flex items-center gap-1.5 text-xs" style={{ color: "#8a95a3" }}>
                 <span className="w-2 h-2 rounded-full" style={{ background: st.color }} />
@@ -74,7 +74,7 @@ export default async function AdminReportes() {
                 className="px-6 py-5"
                 style={{ borderBottom: i < reportes.length - 1 ? "1px solid #f8f9fc" : undefined }}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
                   {/* Status indicator */}
                   <div
                     className="w-1.5 h-full min-h-[60px] rounded-full flex-shrink-0 mt-1"

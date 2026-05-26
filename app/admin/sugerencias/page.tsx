@@ -10,7 +10,7 @@ export default async function AdminSugerencias() {
 
   return (
     <div>
-      <div className="mb-8 flex items-end justify-between gap-4">
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black" style={{ color: "#0e1b2e", letterSpacing: "-0.02em" }}>
             Sugerencias

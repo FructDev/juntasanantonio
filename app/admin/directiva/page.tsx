@@ -47,8 +47,8 @@ export default async function AdminDirectiva() {
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Agregar miembro</div>
         </div>
         <form action={crearMiembro} className="p-6">
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
-            <div className="lg:col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
+            <div className="sm:col-span-2 lg:col-span-2">
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Nombre completo <span style={{ color: "#c8102e" }}>*</span>
               </label>
@@ -190,8 +190,8 @@ export default async function AdminDirectiva() {
                     style={{ background: "#fafbfc", borderTop: "1px solid #f0f4f8" }}
                   >
                     <input type="hidden" name="id" value={m.id} />
-                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-4 mt-4">
-                      <div className="lg:col-span-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4 mt-4">
+                      <div className="sm:col-span-2 lg:col-span-2">
                         <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>Nombre completo</label>
                         <input name="nombre" defaultValue={m.nombre} required
                           className={inp} style={inpStyle} />

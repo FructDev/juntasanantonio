@@ -57,7 +57,7 @@ export default async function AdminFinanzas() {
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Agregar período</div>
         </div>
         <form action={crearFinanza} className="p-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
             <Field label="Mes *">
               <select name="mes" required className={inp} style={inpStyle}>
                 {MESES.map((m) => <option key={m} value={m}>{m}</option>)}
@@ -146,7 +146,7 @@ export default async function AdminFinanzas() {
                 <input type="hidden" name="id" value={f.id} />
                 <input type="hidden" name="mes" value={f.mes} />
                 <input type="hidden" name="anio" value={f.anio} />
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
                   <Field label="Saldo (RD$)">
                     <input name="saldo" type="number" defaultValue={f.saldo}
                       className={inp} style={inpStyle} />

@@ -50,7 +50,7 @@ export default async function AdminAvisos() {
         </div>
 
         <form action={crearAviso} className="p-6 space-y-5">
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-xs font-semibold mb-1.5" style={{ color: "#5a6678" }}>
                 Título <span style={{ color: "#c8102e" }}>*</span>
