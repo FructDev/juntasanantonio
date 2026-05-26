@@ -214,7 +214,7 @@ export async function subirDocumento(fd: FormData) {
   let tamano = "";
 
   if (archivo && archivo.size > 0) {
-    const bytes = await archivo.arrayBuffer();
+    const bytes = await archivo.arrayBuffer() as ArrayBuffer;
     contenido = new Uint8Array(bytes);
     mimeType = archivo.type || "application/octet-stream";
     nombreArchivo = archivo.name;
