@@ -48,15 +48,30 @@ const catLabel: Record<string, string> = {
 };
 
 const filtros = [
-  { key: "todos", label: "Todos" },
+  { key: "todos",   label: "Todos" },
   { key: "ACTA",    label: "Actas" },
   { key: "CARTA",   label: "Cartas" },
   { key: "FINANZA", label: "Estado de caja" },
 ];
 
-function formatFecha(d: Date) {
+function formatFecha(d: Date, short = false) {
+  if (short) {
+    return new Intl.DateTimeFormat("es-DO", { month: "short", year: "numeric" }).format(d);
+  }
   return new Intl.DateTimeFormat("es-DO", { day: "numeric", month: "short", year: "numeric" }).format(d);
 }
+
+const DownloadIcon = () => (
+  <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+  </svg>
+);
+
+const LockIcon = () => (
+  <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+  </svg>
+);
 
 export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
   const [cat, setCat] = useState("todos");
@@ -66,12 +81,12 @@ export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
   return (
     <>
       {/* Filter pills */}
-      <div className="flex gap-2 flex-wrap mb-7">
+      <div className="flex gap-2 flex-wrap items-center mb-7">
         {filtros.map((f) => (
           <button
             key={f.key}
             onClick={() => setCat(f.key)}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold border transition-all"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all"
             style={
               cat === f.key
                 ? { background: "#003876", color: "#fff", borderColor: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }
@@ -81,10 +96,7 @@ export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
             {f.label}
           </button>
         ))}
-        <span
-          className="ml-auto text-xs self-center"
-          style={{ color: "#8a95a3" }}
-        >
+        <span className="ml-auto text-xs" style={{ color: "#8a95a3" }}>
           {visible.length} {visible.length === 1 ? "documento" : "documentos"}
         </span>
       </div>
@@ -97,68 +109,116 @@ export default function DocumentosFiltro({ docs }: { docs: Doc[] }) {
         {visible.map((doc, i) => {
           const cfg = catConfig[doc.categoria] ?? catConfig.ACTA;
           const hasFile = !!doc.nombreArchivo;
+
           return (
             <div
               key={doc.id}
-              className="bg-white flex items-center gap-4 px-5 py-4 transition-colors hover:bg-slate-50"
+              className="bg-white transition-colors hover:bg-slate-50"
               style={{ borderBottom: i < visible.length - 1 ? "1px solid #f0f4f8" : undefined }}
             >
-              {/* Icon */}
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: cfg.bg, color: cfg.color }}
-              >
-                {cfg.icon}
+              {/* Desktop layout (sm+): single row */}
+              <div className="hidden sm:flex items-center gap-4 px-5 py-4">
+                {/* Icon */}
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: cfg.bg, color: cfg.color }}
+                >
+                  {cfg.icon}
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-semibold leading-tight truncate" style={{ color: "#0e1b2e" }}>
+                    {doc.nombre}
+                  </div>
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span
+                      className="text-xs font-medium px-1.5 py-0.5 rounded"
+                      style={{ background: cfg.bg, color: cfg.color }}
+                    >
+                      {catLabel[doc.categoria] ?? doc.categoria}
+                    </span>
+                    <span className="text-xs" style={{ color: "#8a95a3" }}>
+                      {formatFecha(doc.fecha)}{doc.tamano ? ` · ${doc.tamano}` : ""}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Download */}
+                {hasFile ? (
+                  <a
+                    href={`/api/documentos/${doc.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg transition-all hover:-translate-y-px flex-shrink-0"
+                    style={{ color: "#003876", background: "#f0f5ff", border: "1px solid #c7d9f5" }}
+                  >
+                    <DownloadIcon />
+                    Descargar
+                  </a>
+                ) : (
+                  <span
+                    className="flex items-center gap-1.5 text-xs px-3.5 py-1.5 rounded-lg flex-shrink-0 cursor-default select-none"
+                    style={{ color: "#b0bac5", background: "#f5f7fa", border: "1px solid #edf0f5" }}
+                  >
+                    <LockIcon />
+                    No disponible
+                  </span>
+                )}
               </div>
 
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-semibold leading-tight truncate" style={{ color: "#0e1b2e" }}>
-                  {doc.nombre}
-                </div>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span
-                    className="text-xs font-medium px-1.5 py-0.5 rounded"
+              {/* Mobile layout: stacked */}
+              <div className="sm:hidden px-4 py-3.5">
+                <div className="flex items-start gap-3">
+                  {/* Icon */}
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
                     style={{ background: cfg.bg, color: cfg.color }}
                   >
-                    {catLabel[doc.categoria] ?? doc.categoria}
-                  </span>
-                  <span className="text-xs" style={{ color: "#8a95a3" }}>
-                    {formatFecha(doc.fecha)}{doc.tamano ? ` · PDF · ${doc.tamano}` : ""}
-                  </span>
+                    {cfg.icon}
+                  </div>
+
+                  {/* Name + meta + button */}
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-semibold leading-snug mb-1" style={{ color: "#0e1b2e" }}>
+                      {doc.nombre}
+                    </div>
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <span
+                          className="text-xs font-medium px-1.5 py-0.5 rounded flex-shrink-0"
+                          style={{ background: cfg.bg, color: cfg.color }}
+                        >
+                          {catLabel[doc.categoria] ?? doc.categoria}
+                        </span>
+                        <span className="text-xs truncate" style={{ color: "#8a95a3" }}>
+                          {formatFecha(doc.fecha, true)}{doc.tamano ? ` · ${doc.tamano}` : ""}
+                        </span>
+                      </div>
+
+                      {hasFile ? (
+                        <a
+                          href={`/api/documentos/${doc.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-all flex-shrink-0"
+                          style={{ color: "#003876", background: "#f0f5ff", border: "1px solid #c7d9f5" }}
+                        >
+                          <DownloadIcon />
+                          <span>Ver</span>
+                        </a>
+                      ) : (
+                        <span
+                          className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg flex-shrink-0 cursor-default select-none"
+                          style={{ color: "#b0bac5", background: "#f5f7fa", border: "1px solid #edf0f5" }}
+                        >
+                          <LockIcon />
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Download / unavailable */}
-              {hasFile ? (
-                <a
-                  href={`/api/documentos/${doc.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg transition-all hover:-translate-y-px flex-shrink-0"
-                  style={{
-                    color: "#003876",
-                    background: "#f0f5ff",
-                    border: "1px solid #c7d9f5",
-                  }}
-                >
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Descargar
-                </a>
-              ) : (
-                <span
-                  className="flex items-center gap-1.5 text-xs px-3.5 py-1.5 rounded-lg flex-shrink-0 cursor-default select-none"
-                  style={{ color: "#b0bac5", background: "#f5f7fa", border: "1px solid #edf0f5" }}
-                  title="El archivo no está disponible todavía"
-                >
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  No disponible
-                </span>
-              )}
             </div>
           );
         })}

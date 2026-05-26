@@ -72,7 +72,7 @@ export default function ReportarForm() {
                 >
                   {/* Form header bar */}
                   <div
-                    className="px-8 py-5"
+                    className="px-5 sm:px-8 py-5"
                     style={{ borderBottom: "1px solid #f0f0f0" }}
                   >
                     <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ export default function ReportarForm() {
                     </div>
                   </div>
 
-                  <div className="px-8 py-7 space-y-6">
+                  <div className="px-5 sm:px-8 py-6 sm:py-7 space-y-6">
                     {/* Nombre + teléfono */}
                     <div className="grid sm:grid-cols-2 gap-5">
                       <Field label="Tu nombre" required>

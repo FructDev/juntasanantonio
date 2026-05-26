@@ -52,14 +52,14 @@ const ITEMS = [
 export default function QuickAccess() {
   return (
     <div className="bg-white" style={{ borderBottom: "1px solid #edf0f5" }}>
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
-        {ITEMS.map((item, i) => (
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 overflow-hidden">
+        {ITEMS.map((item) => (
           <a
             key={item.href}
             href={item.href}
-            className="flex items-center gap-3.5 px-6 py-5 transition-colors hover:bg-slate-50 group"
+            className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5 transition-colors hover:bg-slate-50 group"
             style={{
-              borderRight: i < ITEMS.length - 1 ? "1px solid #edf0f5" : undefined,
+              borderRight: "1px solid #edf0f5",
               textDecoration: "none",
             }}
           >

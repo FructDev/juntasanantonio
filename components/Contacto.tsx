@@ -68,12 +68,12 @@ export default function Contacto() {
         </div>
 
         {/* Emergency cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
           {emergencias.map((e) => (
             <a
               key={e.nom}
               href={`tel:${e.tel.replace(/\D/g, "")}`}
-              className="group bg-white rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-md no-underline"
+              className="group bg-white rounded-2xl p-4 sm:p-5 transition-all hover:-translate-y-1 hover:shadow-md no-underline"
               style={{ border: "1px solid #edf0f5", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
             >
               {/* Icon */}
