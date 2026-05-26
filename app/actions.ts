@@ -208,14 +208,14 @@ export async function subirDocumento(fd: FormData) {
 
   if (!nombre || !categoria) return { ok: false, error: "Faltan campos" };
 
-  let contenido: Buffer | undefined;
+  let contenido: Uint8Array | undefined;
   let mimeType = "";
   let nombreArchivo = "";
   let tamano = "";
 
   if (archivo && archivo.size > 0) {
     const bytes = await archivo.arrayBuffer();
-    contenido = Buffer.from(bytes);
+    contenido = new Uint8Array(bytes);
     mimeType = archivo.type || "application/octet-stream";
     nombreArchivo = archivo.name;
     tamano = archivo.size < 1024 * 1024
