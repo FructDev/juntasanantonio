@@ -151,7 +151,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Escudo size={32} />
             <div>
               <span className="text-white font-bold text-sm leading-none">
-                Barrio San Antonio
+                Sector San Antonio
               </span>
               <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
                 Panel admin

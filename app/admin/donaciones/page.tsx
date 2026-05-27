@@ -64,7 +64,7 @@ export default async function AdminDonaciones() {
                   { name: "banco",           label: "Banco",          placeholder: "BanReservas, Popular, BHD León…", value: cfg?.banco },
                   { name: "tipoCuenta",      label: "Tipo de cuenta", placeholder: "Ahorro / Corriente",              value: cfg?.tipoCuenta },
                   { name: "numeroCuenta",    label: "Número de cuenta", placeholder: "000-000000-0",                  value: cfg?.numeroCuenta },
-                  { name: "titular",         label: "Titular",        placeholder: "Junta de Vecinos Barrio San Antonio", value: cfg?.titular },
+                  { name: "titular",         label: "Titular",        placeholder: "Junta de Vecinos Sector San Antonio", value: cfg?.titular },
                   { name: "whatsappConfirm", label: "WhatsApp para confirmar transferencias",
                     placeholder: "8091234567", value: cfg?.whatsappConfirm },
                 ].map((f) => (

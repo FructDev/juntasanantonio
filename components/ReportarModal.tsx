@@ -121,7 +121,7 @@ export default function ReportarModal() {
               </div>
               <div>
                 <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Reportar un problema</div>
-                <div className="text-xs" style={{ color: "#8a95a3" }}>Junta de Vecinos · Barrio San Antonio</div>
+                <div className="text-xs" style={{ color: "#8a95a3" }}>Junta de Vecinos · Sector San Antonio</div>
               </div>
             </div>
             <button

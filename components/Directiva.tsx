@@ -27,7 +27,7 @@ export default async function Directiva() {
               Directiva del barrio
             </h2>
             <p className="text-sm mt-2 max-w-md" style={{ color: "#5a6678" }}>
-              Representantes elegidos por los vecinos del Barrio San Antonio para gestionar
+              Representantes elegidos por los vecinos del Sector San Antonio para gestionar
               los intereses comunitarios.
             </p>
           </div>

@@ -79,7 +79,7 @@ export default async function Donaciones() {
 
                 {cfg.whatsappConfirm && (
                   <a
-                    href={`https://wa.me/${cfg.whatsappConfirm.replace(/\D/g, "")}?text=${encodeURIComponent("Hola, acabo de realizar una donación a la Junta de Vecinos Barrio San Antonio.")}`}
+                    href={`https://wa.me/${cfg.whatsappConfirm.replace(/\D/g, "")}?text=${encodeURIComponent("Hola, acabo de realizar una donación a la Junta de Vecinos Sector San Antonio.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all hover:-translate-y-px"
@@ -177,7 +177,7 @@ export default async function Donaciones() {
 
             {cfg.contactoEspecie && (
               <a
-                href={`https://wa.me/${cfg.contactoEspecie.replace(/\D/g, "")}?text=${encodeURIComponent("Hola, quiero coordinar una donación en especie para el Barrio San Antonio.")}`}
+                href={`https://wa.me/${cfg.contactoEspecie.replace(/\D/g, "")}?text=${encodeURIComponent("Hola, quiero coordinar una donación en especie para el Sector San Antonio.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all hover:-translate-y-px"

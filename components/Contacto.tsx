@@ -63,7 +63,7 @@ export default function Contacto() {
             Contacto y emergencias
           </h2>
           <p className="text-sm" style={{ color: "#5a6678" }}>
-            Números importantes para los residentes del Barrio San Antonio.
+            Números importantes para los residentes del Sector San Antonio.
           </p>
         </div>
 

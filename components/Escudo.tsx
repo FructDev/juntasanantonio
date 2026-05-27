@@ -1,5 +1,5 @@
 /**
- * Escudo Junta de Vecinos · Barrio San Antonio · San Cristóbal
+ * Escudo Junta de Vecinos · Sector San Antonio · San Cristóbal
  * Cuarteles azul/rojo (bandera dominicana) · Cruz blanca · Casa central
  */
 export default function Escudo({ size = 36 }: { size?: number }) {
@@ -11,7 +11,7 @@ export default function Escudo({ size = 36 }: { size?: number }) {
       height={h}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Escudo Junta de Vecinos Barrio San Antonio"
+      aria-label="Escudo Junta de Vecinos Sector San Antonio"
       style={{ display: "block", flexShrink: 0 }}
     >
       <defs>

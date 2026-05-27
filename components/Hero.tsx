@@ -41,7 +41,7 @@ export default async function Hero() {
               <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
               <span>San Gregorio de Nigua</span>
               <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
-              <span style={{ color: "rgba(255,255,255,0.75)" }}>Barrio San Antonio</span>
+              <span style={{ color: "rgba(255,255,255,0.75)" }}>Sector San Antonio</span>
             </div>
 
             {/* Title */}
@@ -51,14 +51,14 @@ export default async function Hero() {
             >
               Junta de Vecinos
               <br />
-              <span style={{ color: "#7fb3ff" }}>Barrio San Antonio</span>
+              <span style={{ color: "#7fb3ff" }}>Sector San Antonio</span>
             </h1>
 
             <p
               className="text-base leading-relaxed mb-8 max-w-lg"
               style={{ color: "rgba(255,255,255,0.65)" }}
             >
-              Portal comunitario oficial del Barrio San Antonio,
+              Portal comunitario oficial del Sector San Antonio,
               San Gregorio de Nigua, Provincia San Cristóbal. Reporta problemas,
               consulta documentos y mantente al día con los avisos de la directiva.
             </p>
@@ -133,7 +133,7 @@ export default async function Hero() {
             </div>
           </div>
 
-          {/* Map column — OpenStreetMap showing Barrio San Antonio */}
+          {/* Map column — OpenStreetMap showing Sector San Antonio */}
           <div className="hidden lg:block pb-0">
             <div
               className="overflow-hidden"
@@ -147,7 +147,7 @@ export default async function Hero() {
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-70.122%2C18.395%2C-70.097%2C18.416&layer=mapnik&marker=18.4055%2C-70.1095"
                 loading="lazy"
-                title="Mapa Barrio San Antonio — San Cristóbal, RD"
+                title="Mapa Sector San Antonio — San Cristóbal, RD"
                 className="w-full h-full border-0"
                 style={{ filter: "saturate(0.6) brightness(0.9)" }}
               />
@@ -164,7 +164,7 @@ export default async function Hero() {
             >
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
-                Barrio San Antonio · San Gregorio de Nigua
+                Sector San Antonio · San Gregorio de Nigua
               </div>
               <a
                 href="https://www.openstreetmap.org/?mlat=18.4055&mlon=-70.1095#map=16/18.4055/-70.1095"

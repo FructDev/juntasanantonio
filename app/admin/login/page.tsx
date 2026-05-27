@@ -19,7 +19,7 @@ export default function LoginPage() {
             <span className="text-white text-xl">🏛</span>
           </div>
           <h1 className="text-lg font-bold">Panel de administración</h1>
-          <p className="text-xs mt-1" style={{ color: "#4a5568" }}>Junta de Vecinos — Barrio San Antonio</p>
+          <p className="text-xs mt-1" style={{ color: "#4a5568" }}>Junta de Vecinos — Sector San Antonio</p>
         </div>
 
         <form action={action} className="space-y-4">

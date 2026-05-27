@@ -113,7 +113,7 @@ const HEADER_HTML = `
     ${ESCUDO_SVG}
     <div>
       <div style="font-size:17px;font-weight:bold;color:#003876;font-family:Calibri,sans-serif;letter-spacing:0.02em;">JUNTA DE VECINOS</div>
-      <div style="font-size:12px;color:#003876;font-family:Calibri,sans-serif;">Barrio San Antonio · Sector Lava Pie</div>
+      <div style="font-size:12px;color:#003876;font-family:Calibri,sans-serif;">Sector San Antonio · Sector Lava Pie</div>
       <div style="font-size:11px;color:#666;font-family:Calibri,sans-serif;">San Cristóbal, República Dominicana</div>
     </div>
   </div>
@@ -144,7 +144,7 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
       <p style="margin-bottom:20px;">Su despacho.-</p>
       <p style="margin-bottom:20px;"><strong>Asunto: <u>${s("asunto","[Asunto]")}</u></strong></p>
       <p style="margin-bottom:20px;">Estimado/a ${s("cargo","[Cargo]")}:</p>
-      <p style="margin-bottom:16px;">En nombre de la Junta de Vecinos del Barrio San Antonio, Sector Lava Pie, municipio San Cristóbal, me dirijo respetuosamente a usted para <strong>${s("objeto","[objeto de la carta]")}</strong>.</p>
+      <p style="margin-bottom:16px;">En nombre de la Junta de Vecinos del Sector San Antonio, Sector Lava Pie, municipio San Cristóbal, me dirijo respetuosamente a usted para <strong>${s("objeto","[objeto de la carta]")}</strong>.</p>
       ${s("antecedentes") ? `
       <p style="margin-bottom:4px;"><strong style="color:#003876;">ANTECEDENTES:</strong></p>
       <p style="margin-bottom:16px;white-space:pre-line;">${s("antecedentes")}</p>
@@ -157,7 +157,7 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
       <div style="border-top:1px solid #999;padding-top:4px;display:inline-block;min-width:200px;">
         <p style="margin:0;font-weight:bold;">${firmanteParts[0] || "[Firmante]"}</p>
         <p style="margin:0;">${firmanteParts[1] || "Junta de Vecinos"}</p>
-        <p style="margin:0;">Barrio San Antonio, San Cristóbal</p>
+        <p style="margin:0;">Sector San Antonio, San Cristóbal</p>
       </div>
     `;
   }
@@ -171,7 +171,7 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
       <p style="margin-bottom:4px;"><strong>De:</strong> La Directiva de la Junta de Vecinos</p>
       <p style="margin-bottom:12px;"><strong>Asunto:</strong> ${s("asunto","[Tema]")}</p>
       <hr style="border:none;border-top:1px solid #003876;margin-bottom:16px;"/>
-      <p style="margin-bottom:12px;">Por medio de la presente, la Directiva de la Junta de Vecinos del Barrio San Antonio se complace en comunicarles que:</p>
+      <p style="margin-bottom:12px;">Por medio de la presente, la Directiva de la Junta de Vecinos del Sector San Antonio se complace en comunicarles que:</p>
       <ol style="margin-bottom:16px;padding-left:24px;">
         ${puntos.map(pt => `<li style="margin-bottom:6px;">${pt}</li>`).join("")}
       </ol>
@@ -203,7 +203,7 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
           ["Fecha", s("fecha", hoy())],
           ["Hora de inicio", s("horaInicio","—")],
           ["Hora de cierre", s("horaCierre","—")],
-          ["Lugar", "Salón comunitario, Barrio San Antonio"],
+          ["Lugar", "Salón comunitario, Sector San Antonio"],
           ["Tipo de asamblea", s("tipo","Ordinaria")],
           ["Quórum", s("quorum","—")],
         ].map(([k,v],i) => `

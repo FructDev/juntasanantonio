@@ -27,12 +27,12 @@ export default function Footer() {
               <Escudo size={40} />
               <div>
                 <div className="text-white font-bold text-sm leading-none">Junta de Vecinos</div>
-                <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Barrio San Antonio · San Gregorio de Nigua</div>
+                <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Sector San Antonio · San Gregorio de Nigua</div>
               </div>
             </div>
             <p className="text-xs leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.4)" }}>
               Organización comunitaria sin fines de lucro que representa a los residentes del
-              Barrio San Antonio, San Gregorio de Nigua, Provincia San Cristóbal, República Dominicana.
+              Sector San Antonio, San Gregorio de Nigua, Provincia San Cristóbal, República Dominicana.
             </p>
             <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.25)" }}>
               Norte: Calle Osvaldo Bazil · Sur: Carretera Palenque
@@ -109,7 +109,7 @@ export default function Footer() {
       >
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © 2026 Junta de Vecinos Barrio San Antonio · San Gregorio de Nigua, República Dominicana
+            © 2026 Junta de Vecinos Sector San Antonio · San Gregorio de Nigua, República Dominicana
           </p>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
             Sitio desarrollado para la comunidad
