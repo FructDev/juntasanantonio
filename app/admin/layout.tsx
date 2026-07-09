@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -219,7 +219,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <button
             onClick={() => setSidebarOpen(true)}
             className="md:hidden flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-xl"
-            style={{ background: "#f0f4f8", color: "#003876" }}
+            style={{ background: "#f0f4f8", color: "#1b5e20" }}
             aria-label="Abrir menú"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -234,7 +234,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link
             href="/"
             className="text-xs font-medium flex items-center gap-1.5 transition-opacity hover:opacity-70 whitespace-nowrap"
-            style={{ color: "#003876", textDecoration: "none" }}
+            style={{ color: "#1b5e20", textDecoration: "none" }}
           >
             <span className="hidden sm:inline">Ver sitio público</span>
             <span className="sm:hidden">Sitio</span>

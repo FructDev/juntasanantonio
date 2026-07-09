@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 export default async function Donaciones() {
   const cfg = await prisma.donacionConfig.findFirst();
@@ -27,7 +27,7 @@ export default async function Donaciones() {
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </div>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
             Apoya tu barrio
           </p>
           <h2 className="text-3xl font-black mb-3" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
@@ -48,8 +48,8 @@ export default async function Donaciones() {
             {/* Card header */}
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "#f0f5ff" }}>
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#003876" strokeWidth={1.8}>
+                style={{ background: "#f1f8f1" }}>
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round"
                     d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>

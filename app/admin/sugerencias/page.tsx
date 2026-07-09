@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { marcarSugerenciaLeida, eliminarSugerencia } from "@/app/actions";
 
 export default async function AdminSugerencias() {
@@ -18,7 +18,7 @@ export default async function AdminSugerencias() {
           <p className="text-sm mt-1" style={{ color: "#8a95a3" }}>
             {sugerencias.length} {sugerencias.length === 1 ? "sugerencia" : "sugerencias"} recibidas
             {noLeidas > 0 && (
-              <span className="ml-2 font-semibold" style={{ color: "#003876" }}>
+              <span className="ml-2 font-semibold" style={{ color: "#1b5e20" }}>
                 · {noLeidas} sin leer
               </span>
             )}
@@ -38,7 +38,7 @@ export default async function AdminSugerencias() {
           {noLeidas > 0 && (
             <span
               className="text-xs font-semibold px-2.5 py-1 rounded-full"
-              style={{ background: "#f0f5ff", color: "#003876" }}
+              style={{ background: "#f1f8f1", color: "#1b5e20" }}
             >
               {noLeidas} nuevas
             </span>
@@ -63,7 +63,7 @@ export default async function AdminSugerencias() {
               {/* Unread indicator */}
               <div className="mt-1.5 flex-shrink-0">
                 {!s.leido ? (
-                  <div className="w-2 h-2 rounded-full" style={{ background: "#003876" }} />
+                  <div className="w-2 h-2 rounded-full" style={{ background: "#1b5e20" }} />
                 ) : (
                   <div className="w-2 h-2 rounded-full" style={{ background: "#e2e8f0" }} />
                 )}
@@ -81,7 +81,7 @@ export default async function AdminSugerencias() {
                   {!s.leido && (
                     <span
                       className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                      style={{ background: "#f0f5ff", color: "#003876" }}
+                      style={{ background: "#f1f8f1", color: "#1b5e20" }}
                     >
                       Nueva
                     </span>
@@ -99,7 +99,7 @@ export default async function AdminSugerencias() {
                     <button
                       type="submit"
                       className="text-xs px-3 py-1.5 rounded-lg border transition-colors hover:bg-blue-50"
-                      style={{ borderColor: "#c7d9f5", color: "#003876" }}
+                      style={{ borderColor: "#a5d6a5", color: "#1b5e20" }}
                     >
                       Marcar leída
                     </button>

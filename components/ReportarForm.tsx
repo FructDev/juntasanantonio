@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useTransition } from "react";
 import { enviarReporte } from "@/app/actions";
@@ -78,7 +78,7 @@ export default function ReportarForm() {
                     <div className="flex items-center gap-3">
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                        style={{ background: "#003876" }}
+                        style={{ background: "#1b5e20" }}
                       >
                         R
                       </div>
@@ -165,16 +165,16 @@ export default function ReportarForm() {
                       </div>
                       <label
                         className="flex items-center gap-4 p-4 rounded-xl border-2 border-dashed cursor-pointer transition-colors"
-                        style={{ borderColor: fotoName ? "#003876" : "#dde3ec", background: fotoName ? "#f0f5ff" : "transparent" }}
+                        style={{ borderColor: fotoName ? "#1b5e20" : "#dde3ec", background: fotoName ? "#f1f8f1" : "transparent" }}
                       >
                         <div
                           className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg"
-                          style={{ background: fotoName ? "#e8f0fb" : "#f4f6f9" }}
+                          style={{ background: fotoName ? "#e8f5e9" : "#f4f6f9" }}
                         >
                           {fotoName ? "📎" : "📷"}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="text-sm font-medium" style={{ color: fotoName ? "#003876" : "#374151" }}>
+                          <div className="text-sm font-medium" style={{ color: fotoName ? "#1b5e20" : "#374151" }}>
                             {fotoName ? fotoName : "Adjuntar foto"}
                           </div>
                           <div className="text-xs" style={{ color: "#8a95a3" }}>
@@ -217,8 +217,8 @@ export default function ReportarForm() {
                       disabled={isPending}
                       className="w-full text-white font-semibold py-3.5 rounded-xl text-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                       style={{
-                        background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #003876 0%, #004e9e 100%)",
-                        boxShadow: isPending ? "none" : "0 4px 14px rgba(0,56,118,0.35)",
+                        background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%)",
+                        boxShadow: isPending ? "none" : "0 4px 14px rgba(27,94,32,0.35)",
                       }}
                     >
                       {isPending ? (
@@ -238,7 +238,7 @@ export default function ReportarForm() {
                       Para emergencias inmediatas llama al{" "}
                       <a href="tel:911" className="font-semibold" style={{ color: "#c8102e" }}>911</a>
                       {" "}o al presidente al{" "}
-                      <a href="tel:+18091234567" className="font-semibold" style={{ color: "#003876" }}>
+                      <a href="tel:+18091234567" className="font-semibold" style={{ color: "#1b5e20" }}>
                         (809) 123-4567
                       </a>
                     </p>
@@ -306,7 +306,7 @@ export default function ReportarForm() {
                 <a
                   href="tel:+18091234567"
                   className="flex items-center gap-3 py-2.5 px-3.5 rounded-xl text-sm font-semibold transition-opacity hover:opacity-80"
-                  style={{ background: "#fff", color: "#003876", border: "1px solid #dde3ec" }}
+                  style={{ background: "#fff", color: "#1b5e20", border: "1px solid #dde3ec" }}
                 >
                   <span>📞</span> Presidente — (809) 123-4567
                 </a>
@@ -330,9 +330,9 @@ export default function ReportarForm() {
           font-family: inherit;
         }
         .field-input:focus {
-          border-color: #003876;
+          border-color: #1b5e20;
           background: #fff;
-          box-shadow: 0 0 0 3px rgba(0,56,118,0.08);
+          box-shadow: 0 0 0 3px rgba(27,94,32,0.08);
         }
         .field-input::placeholder { color: #b0bac5; }
         .field-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a95a3' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
@@ -390,14 +390,14 @@ function SuccessCard({ onBack }: { onBack: () => void }) {
       </p>
       <div
         className="text-xs p-3 rounded-xl mb-6"
-        style={{ background: "#f0f5ff", color: "#003876" }}
+        style={{ background: "#f1f8f1", color: "#1b5e20" }}
       >
         Los avances se publican en el tablón de avisos del barrio.
       </div>
       <button
         onClick={onBack}
         className="text-sm font-medium transition-opacity hover:opacity-70"
-        style={{ color: "#003876" }}
+        style={{ color: "#1b5e20" }}
       >
         ← Reportar otro problema
       </button>

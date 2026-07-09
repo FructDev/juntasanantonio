@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 function fmt(n: number) {
   return new Intl.NumberFormat("es-DO", { style: "currency", currency: "DOP", minimumFractionDigits: 0 }).format(n);
@@ -10,7 +10,7 @@ function formatFecha(d: Date | null) {
 }
 
 const estadoCfg: Record<string, { label: string; bg: string; color: string; dot: string }> = {
-  PLANIFICADA: { label: "Planificada",  bg: "#f0f5ff", color: "#003876", dot: "#5b8dd9" },
+  PLANIFICADA: { label: "Planificada",  bg: "#f1f8f1", color: "#1b5e20", dot: "#5b8dd9" },
   EN_CURSO:    { label: "En curso",     bg: "#fffbf0", color: "#92600a", dot: "#f0a500" },
   COMPLETADA:  { label: "Completada",   bg: "#f0faf5", color: "#1a6b3c", dot: "#2e7d52" },
 };
@@ -32,7 +32,7 @@ export default async function Obras() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
               Gestión activa
             </p>
             <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
@@ -96,7 +96,7 @@ export default async function Obras() {
                       {cfg.label}
                     </span>
                     {obra.costo != null && (
-                      <span className="text-xs font-bold" style={{ color: "#003876" }}>
+                      <span className="text-xs font-bold" style={{ color: "#1b5e20" }}>
                         {fmt(obra.costo)}
                       </span>
                     )}

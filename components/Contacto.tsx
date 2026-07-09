@@ -1,4 +1,4 @@
-const emergencias = [
+﻿const emergencias = [
   {
     nom: "Emergencias",
     tel: "911",
@@ -56,7 +56,7 @@ export default function Contacto() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
             Siempre disponibles
           </p>
           <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
@@ -100,8 +100,8 @@ export default function Contacto() {
         <div
           className="rounded-2xl p-7 relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #001f4d 0%, #003876 100%)",
-            boxShadow: "0 4px 24px rgba(0,56,118,0.2)",
+            background: "linear-gradient(135deg, #0d2e0d 0%, #1b5e20 100%)",
+            boxShadow: "0 4px 24px rgba(27,94,32,0.2)",
           }}
         >
           {/* Background circles */}

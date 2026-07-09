@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { subirDocumento, eliminarDocumento } from "@/app/actions";
 
 const CATEGORIAS = ["ACTA", "CARTA", "FINANZA", "REGLAMENTO", "OTRO"];
@@ -6,7 +6,7 @@ const catLabel: Record<string, string> = {
   ACTA: "Acta", CARTA: "Carta", FINANZA: "Finanza", REGLAMENTO: "Reglamento", OTRO: "Otro",
 };
 const catColor: Record<string, { bg: string; color: string }> = {
-  ACTA:       { bg: "#f0f5ff", color: "#003876" },
+  ACTA:       { bg: "#f1f8f1", color: "#1b5e20" },
   CARTA:      { bg: "#f0faf5", color: "#1a6b3c" },
   FINANZA:    { bg: "#fffbf0", color: "#92600a" },
   REGLAMENTO: { bg: "#f5f0ff", color: "#6b21a8" },
@@ -44,7 +44,7 @@ export default async function AdminDocumentos() {
           className="px-6 py-4 flex items-center gap-2"
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
-          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#003876" }}>
+          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#1b5e20" }}>
             <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
             </svg>
@@ -101,7 +101,7 @@ export default async function AdminDocumentos() {
             <button
               type="submit"
               className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:shadow-md transition-all hover:-translate-y-px"
-              style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+              style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
             >
               Subir documento
             </button>
@@ -119,7 +119,7 @@ export default async function AdminDocumentos() {
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Documentos publicados</div>
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: "#f0f5ff", color: "#003876" }}>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: "#f1f8f1", color: "#1b5e20" }}>
             {documentos.length} documentos
           </span>
         </div>
@@ -172,7 +172,7 @@ export default async function AdminDocumentos() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 flex-shrink-0"
-                    style={{ background: "#f0f5ff", color: "#003876" }}
+                    style={{ background: "#f1f8f1", color: "#1b5e20" }}
                   >
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

@@ -1,27 +1,58 @@
-<svg viewBox="0 0 120 152" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Junta de Vecinos Sector San Antonio">
+  <title>Junta de Vecinos · Sector San Antonio · Unión y Esfuerzo</title>
   <defs>
-    <clipPath id="c">
-      <path d="M60,9 Q34,9 19,22 L19,87 Q19,129 60,143 Q101,129 101,87 L101,22 Q86,9 60,9 Z"/>
-    </clipPath>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f4d96a"/>
-      <stop offset="50%" stop-color="#d4a020"/>
-      <stop offset="100%" stop-color="#a87010"/>
-    </linearGradient>
+    <path id="T" d="M 10,60 A 50,50 0 0,0 110,60"/>
+    <path id="B" d="M 10,60 A 50,50 0 0,1 110,60"/>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0faf0"/>
+    </radialGradient>
   </defs>
-  <path d="M60,4 Q30,4 13,18 L13,87 Q13,133 60,149 Q107,133 107,87 L107,18 Q90,4 60,4 Z" fill="url(#g)"/>
-  <g clip-path="url(#c)">
-    <rect x="19" y="9"  width="41" height="66" fill="#003580"/>
-    <rect x="60" y="9"  width="41" height="66" fill="#bf0d27"/>
-    <rect x="19" y="75" width="41" height="68" fill="#bf0d27"/>
-    <rect x="60" y="75" width="41" height="68" fill="#003580"/>
-    <rect x="19" y="69" width="82" height="12" fill="white"/>
-    <rect x="54" y="9"  width="12" height="134" fill="white"/>
-    <circle cx="60" cy="75" r="17" fill="white"/>
-    <circle cx="60" cy="75" r="17" fill="none" stroke="#d4a020" stroke-width="0.8"/>
-    <polygon points="60,62 49,73 71,73" fill="#003580"/>
-    <rect x="51" y="73" width="18" height="12" fill="#003580"/>
-    <rect x="57" y="77" width="6" height="8" rx="1" fill="white"/>
+
+  <circle cx="60" cy="60" r="59" fill="#1e7a1e"/>
+  <circle cx="60" cy="60" r="51.5" fill="#2b8c2b"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+  <circle cx="60" cy="60" r="44" fill="url(#bg)"/>
+
+  <text font-family="Arial Black,Arial,sans-serif" font-size="9.2" font-weight="900" fill="white" letter-spacing="2.2" text-anchor="middle">
+    <textPath href="#T" startOffset="50%">JUNTA DE VECINOS</textPath>
+  </text>
+  <text font-family="Arial Black,Arial,sans-serif" font-size="8.5" font-weight="900" fill="white" letter-spacing="2" text-anchor="middle">
+    <textPath href="#B" startOffset="50%">UNIÓN Y ESFUERZO</textPath>
+  </text>
+
+  <circle cx="60" cy="27" r="7.5" fill="#ffa726"/>
+  <g stroke="#ffa726" stroke-width="1.8" stroke-linecap="round" opacity="0.65">
+    <line x1="60" y1="16.5" x2="60" y2="13"/>
+    <line x1="69.5" y1="19.5" x2="72.5" y2="16.5"/>
+    <line x1="75.5" y1="29" x2="79" y2="28"/>
+    <line x1="50.5" y1="19.5" x2="47.5" y2="16.5"/>
+    <line x1="44.5" y1="29" x2="41" y2="28"/>
   </g>
-  <path d="M60,4 Q30,4 13,18 L13,87 Q13,133 60,149 Q107,133 107,87 L107,18 Q90,4 60,4 Z" fill="none" stroke="#8a6808" stroke-width="1.5"/>
+
+  <polygon points="60,32 38,50 82,50" fill="#1b5e20"/>
+  <rect x="68" y="35" width="4" height="13" fill="#1b5e20"/>
+  <rect x="41" y="49" width="38" height="22" fill="#2e7d32"/>
+  <rect x="52" y="56" width="16" height="15" rx="2" fill="white"/>
+  <circle cx="65.5" cy="64" r="1.2" fill="#1b5e20"/>
+  <rect x="43" y="53" width="7" height="7" rx="1" fill="rgba(255,255,255,0.9)"/>
+  <rect x="70" y="53" width="7" height="7" rx="1" fill="rgba(255,255,255,0.9)"/>
+
+  <circle cx="26" cy="42" r="5" fill="#1565c0"/>
+  <path d="M 21,49 Q 26,61 31,49 Z" fill="#1565c0"/>
+  <line x1="31" y1="52" x2="38.5" y2="46" stroke="#1565c0" stroke-width="2.5" stroke-linecap="round"/>
+
+  <circle cx="94" cy="42" r="5" fill="#f5a623"/>
+  <path d="M 89,49 Q 94,61 99,49 Z" fill="#f5a623"/>
+  <line x1="89" y1="52" x2="81.5" y2="46" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round"/>
+
+  <circle cx="60" cy="63" r="3.5" fill="#43a047"/>
+  <path d="M 56.5,67 Q 60,74 63.5,67 Z" fill="#43a047"/>
+
+  <text x="60" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.8" font-weight="700" fill="#1b5e20" letter-spacing="0.4">CONSTRUYENDO UN</text>
+  <text x="60" y="87" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.8" font-weight="700" fill="#1b5e20" letter-spacing="0.4">FUTURO MEJOR</text>
+  <line x1="40" y1="90" x2="78" y2="90" stroke="#1b5e20" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="60" cy="94" r="2.5" fill="#ffa726" opacity="0.6"/>
+
+  <circle cx="60" cy="60" r="58.5" fill="none" stroke="#ffa726" stroke-width="1" opacity="0.45"/>
 </svg>

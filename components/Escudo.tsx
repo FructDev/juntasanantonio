@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Escudo Junta de Vecinos · Sector San Antonio · San Cristóbal
  * Cuarteles azul/rojo (bandera dominicana) · Cruz blanca · Casa central
  */

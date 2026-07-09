@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Escudo from "@/components/Escudo";
 
 const links = [
@@ -16,7 +16,7 @@ export default function Footer() {
       <div
         className="px-6 pt-14 pb-10"
         style={{
-          background: "linear-gradient(180deg, #001433 0%, #001f4d 100%)",
+          background: "linear-gradient(180deg, #061406 0%, #0d2e0d 100%)",
           borderTop: "1px solid rgba(255,255,255,0.05)",
         }}
       >
@@ -105,7 +105,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div
         className="px-6 py-4"
-        style={{ background: "#000e26", borderTop: "1px solid rgba(255,255,255,0.04)" }}
+        style={{ background: "#020d02", borderTop: "1px solid rgba(255,255,255,0.04)" }}
       >
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>

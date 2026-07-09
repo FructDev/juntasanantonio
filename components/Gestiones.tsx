@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 const estadoCfg = {
   PENDIENTE:  { label: "Pendiente",   bg: "#fff0f2", color: "#c8102e", dot: "#c8102e" },
@@ -16,7 +16,7 @@ const tipoCfg: Record<string, { color: string; bg: string; icon: React.ReactNode
     icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>,
   },
   "Problema con el agua": {
-    color: "#004e9e", bg: "#f0f5ff",
+    color: "#2e7d32", bg: "#f1f8f1",
     icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>,
   },
   "Cañada o drenaje tapado": {
@@ -55,7 +55,7 @@ export default async function Gestiones() {
         {/* Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
               Transparencia
             </p>
             <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -28,7 +28,7 @@ export default function Header() {
       <header
         className="sticky top-0 z-50"
         style={{
-          background: "rgba(0,28,70,0.97)",
+          background: "rgba(13,46,13,0.97)",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
@@ -41,10 +41,10 @@ export default function Header() {
             </div>
             <div>
               <div className="text-white font-bold text-sm leading-none">
-                Junta de Vecinos
+                Junta de Vecinos Sector San Antonio
               </div>
               <div className="text-xs leading-none mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
-                Sector San Antonio · San Gregorio de Nigua
+                Unión y Esfuerzo · San Gregorio de Nigua
               </div>
             </div>
           </Link>

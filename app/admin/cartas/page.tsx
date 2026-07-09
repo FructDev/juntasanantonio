@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -112,16 +112,16 @@ const HEADER_HTML = `
   <div style="display:flex;align-items:center;gap:18px;margin-bottom:8px;">
     ${ESCUDO_SVG}
     <div>
-      <div style="font-size:17px;font-weight:bold;color:#003876;font-family:Calibri,sans-serif;letter-spacing:0.02em;">JUNTA DE VECINOS</div>
-      <div style="font-size:12px;color:#003876;font-family:Calibri,sans-serif;">Sector San Antonio · Sector Lava Pie</div>
+      <div style="font-size:17px;font-weight:bold;color:#1b5e20;font-family:Calibri,sans-serif;letter-spacing:0.02em;">JUNTA DE VECINOS</div>
+      <div style="font-size:12px;color:#1b5e20;font-family:Calibri,sans-serif;">Sector San Antonio · Sector Lava Pie</div>
       <div style="font-size:11px;color:#666;font-family:Calibri,sans-serif;">San Cristóbal, República Dominicana</div>
     </div>
   </div>
-  <div style="border-bottom:3px solid #003876;margin-bottom:20px;padding-bottom:4px;"></div>
+  <div style="border-bottom:3px solid #1b5e20;margin-bottom:20px;padding-bottom:4px;"></div>
 `;
 
 const FOOTER_HTML = `
-  <div style="border-top:1px solid #003876;padding-top:6px;margin-top:20px;display:flex;justify-content:space-between;font-size:10px;color:#666;font-family:Calibri,sans-serif;">
+  <div style="border-top:1px solid #1b5e20;padding-top:6px;margin-top:20px;display:flex;justify-content:space-between;font-size:10px;color:#666;font-family:Calibri,sans-serif;">
     <span>(809) ___-____</span>
     <span>juntasanantonio@gmail.com</span>
     <span>San Cristóbal, RD</span>
@@ -146,10 +146,10 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
       <p style="margin-bottom:20px;">Estimado/a ${s("cargo","[Cargo]")}:</p>
       <p style="margin-bottom:16px;">En nombre de la Junta de Vecinos del Sector San Antonio, Sector Lava Pie, municipio San Cristóbal, me dirijo respetuosamente a usted para <strong>${s("objeto","[objeto de la carta]")}</strong>.</p>
       ${s("antecedentes") ? `
-      <p style="margin-bottom:4px;"><strong style="color:#003876;">ANTECEDENTES:</strong></p>
+      <p style="margin-bottom:4px;"><strong style="color:#1b5e20;">ANTECEDENTES:</strong></p>
       <p style="margin-bottom:16px;white-space:pre-line;">${s("antecedentes")}</p>
       ` : ""}
-      <p style="margin-bottom:4px;"><strong style="color:#003876;">SOLICITUD:</strong></p>
+      <p style="margin-bottom:4px;"><strong style="color:#1b5e20;">SOLICITUD:</strong></p>
       <p style="margin-bottom:16px;">En tal virtud, solicitamos respetuosamente a su institución <strong>${s("solicitud","[lo que se solicita]")}</strong>, lo cual redundaría en beneficio directo de los aproximadamente 180 núcleos familiares que residen en el sector.</p>
       <p style="margin-bottom:20px;">En la espera de una pronta y favorable respuesta, le agradecemos de antemano su gestión.</p>
       <p style="margin-bottom:8px;">Atentamente,</p>
@@ -165,17 +165,17 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
   if (plantilla === "circular") {
     const puntos = [s("punto1"), s("punto2"), s("punto3")].filter(Boolean);
     body = `
-      <p style="text-align:center;font-size:16px;font-weight:bold;color:#003876;margin-bottom:16px;">CIRCULAR No. ${s("numero","[___]")} / ${new Date().getFullYear()}</p>
+      <p style="text-align:center;font-size:16px;font-weight:bold;color:#1b5e20;margin-bottom:16px;">CIRCULAR No. ${s("numero","[___]")} / ${new Date().getFullYear()}</p>
       <p style="margin-bottom:4px;">${s("fecha", hoy())}</p>
       <p style="margin-bottom:4px;"><strong>A: TODOS LOS VECINOS Y RESIDENTES DEL BARRIO SAN ANTONIO</strong></p>
       <p style="margin-bottom:4px;"><strong>De:</strong> La Directiva de la Junta de Vecinos</p>
       <p style="margin-bottom:12px;"><strong>Asunto:</strong> ${s("asunto","[Tema]")}</p>
-      <hr style="border:none;border-top:1px solid #003876;margin-bottom:16px;"/>
+      <hr style="border:none;border-top:1px solid #1b5e20;margin-bottom:16px;"/>
       <p style="margin-bottom:12px;">Por medio de la presente, la Directiva de la Junta de Vecinos del Sector San Antonio se complace en comunicarles que:</p>
       <ol style="margin-bottom:16px;padding-left:24px;">
         ${puntos.map(pt => `<li style="margin-bottom:6px;">${pt}</li>`).join("")}
       </ol>
-      ${s("accion") ? `<p style="margin-bottom:4px;"><strong style="color:#003876;">ACCIÓN REQUERIDA:</strong></p><p style="margin-bottom:12px;white-space:pre-line;">${s("accion")}</p>` : ""}
+      ${s("accion") ? `<p style="margin-bottom:4px;"><strong style="color:#1b5e20;">ACCIÓN REQUERIDA:</strong></p><p style="margin-bottom:12px;white-space:pre-line;">${s("accion")}</p>` : ""}
       ${s("fechaLimite") ? `<p style="margin-bottom:20px;"><strong>FECHA LÍMITE: ${s("fechaLimite")}</strong></p>` : ""}
       <p style="margin-bottom:20px;">Agradecemos su colaboración y participación activa en el bienestar de nuestro barrio.</p>
       <br/>
@@ -193,11 +193,11 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
   if (plantilla === "acta") {
     const acuerdosLines = s("acuerdos","").split("\n").filter(Boolean);
     body = `
-      <p style="text-align:center;font-size:15px;font-weight:bold;color:#003876;margin-bottom:4px;">ACTA DE ASAMBLEA ${s("tipo","ORDINARIA").toUpperCase()}</p>
+      <p style="text-align:center;font-size:15px;font-weight:bold;color:#1b5e20;margin-bottom:4px;">ACTA DE ASAMBLEA ${s("tipo","ORDINARIA").toUpperCase()}</p>
       <p style="text-align:center;font-size:13px;color:#666;margin-bottom:12px;">No. ${s("numero","[___]")} · ${s("fecha", hoy())}</p>
-      <hr style="border:none;border-top:2px solid #003876;margin-bottom:16px;"/>
+      <hr style="border:none;border-top:2px solid #1b5e20;margin-bottom:16px;"/>
 
-      <p style="font-weight:bold;color:#003876;margin-bottom:8px;">I. DATOS GENERALES</p>
+      <p style="font-weight:bold;color:#1b5e20;margin-bottom:8px;">I. DATOS GENERALES</p>
       <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:12px;">
         ${[
           ["Fecha", s("fecha", hoy())],
@@ -214,7 +214,7 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
         `).join("")}
       </table>
 
-      <p style="font-weight:bold;color:#003876;margin-bottom:8px;">II. ORDEN DEL DÍA</p>
+      <p style="font-weight:bold;color:#1b5e20;margin-bottom:8px;">II. ORDEN DEL DÍA</p>
       <ol style="margin-bottom:16px;padding-left:24px;font-size:12px;">
         <li style="margin-bottom:4px;">Verificación del quórum</li>
         <li style="margin-bottom:4px;">Lectura y aprobación del acta anterior</li>
@@ -224,17 +224,17 @@ function buildLetterHtml(plantilla: Plantilla, data: Record<string, string>): st
       </ol>
 
       ${acuerdosLines.length ? `
-      <p style="font-weight:bold;color:#003876;margin-bottom:8px;">III. ACUERDOS</p>
+      <p style="font-weight:bold;color:#1b5e20;margin-bottom:8px;">III. ACUERDOS</p>
       <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:12px;">
-        <tr style="background:#003876;color:#fff;">
-          <td style="padding:5px 10px;border:1px solid #003876;width:8%;">No.</td>
-          <td style="padding:5px 10px;border:1px solid #003876;">Acuerdo</td>
+        <tr style="background:#1b5e20;color:#fff;">
+          <td style="padding:5px 10px;border:1px solid #1b5e20;width:8%;">No.</td>
+          <td style="padding:5px 10px;border:1px solid #1b5e20;">Acuerdo</td>
         </tr>
         ${acuerdosLines.map((a,i) => `<tr><td style="padding:5px 10px;border:1px solid #ddd;text-align:center;">${i+1}</td><td style="padding:5px 10px;border:1px solid #ddd;">${a.replace(/^\d+[\.\-]\s*/,"")}</td></tr>`).join("")}
       </table>
       ` : ""}
 
-      <p style="font-weight:bold;color:#003876;margin-bottom:8px;">IV. CIERRE</p>
+      <p style="font-weight:bold;color:#1b5e20;margin-bottom:8px;">IV. CIERRE</p>
       <p style="margin-bottom:20px;font-size:12px;">No habiendo más asuntos que tratar, se da por clausurada la asamblea a las <strong>${s("horaCierre","[hora]")}</strong> del día <strong>${s("fecha",hoy())}</strong>.</p>
       <br/>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
@@ -379,7 +379,7 @@ export default function AdminCartas() {
               className="bg-white rounded-2xl p-6 text-left transition-all hover:-translate-y-1 hover:shadow-md"
               style={{ border: "1px solid #edf0f5", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
             >
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "#f0f5ff", color: "#003876" }}>
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "#f1f8f1", color: "#1b5e20" }}>
                 {t.icon}
               </div>
               <div className="font-bold text-sm mb-1" style={{ color: "#0e1b2e" }}>{t.label}</div>
@@ -430,14 +430,14 @@ export default function AdminCartas() {
                 <button
                   onClick={() => setPreviewing(true)}
                   className="flex-1 text-sm font-semibold py-2.5 rounded-xl transition-all"
-                  style={{ background: "#f0f5ff", color: "#003876" }}
+                  style={{ background: "#f1f8f1", color: "#1b5e20" }}
                 >
                   Vista previa
                 </button>
                 <button
                   onClick={handlePrint}
                   className="flex-1 flex items-center justify-center gap-2 text-white text-sm font-semibold py-2.5 rounded-xl transition-all hover:-translate-y-px hover:shadow-md"
-                  style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+                  style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>

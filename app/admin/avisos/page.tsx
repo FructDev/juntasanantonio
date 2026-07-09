@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { crearAviso, eliminarAviso } from "@/app/actions";
 
 const tipos = ["URGENTE", "ALERTA", "INFORMACION", "EVENTO", "ASAMBLEA"];
@@ -6,7 +6,7 @@ const tipos = ["URGENTE", "ALERTA", "INFORMACION", "EVENTO", "ASAMBLEA"];
 const tipoCfg: Record<string, { bg: string; color: string }> = {
   URGENTE:     { bg: "#fff0f2", color: "#c8102e" },
   ALERTA:      { bg: "#fff3f0", color: "#d14c00" },
-  INFORMACION: { bg: "#f0f5ff", color: "#003876" },
+  INFORMACION: { bg: "#f1f8f1", color: "#1b5e20" },
   EVENTO:      { bg: "#f0faf5", color: "#1a6b3c" },
   ASAMBLEA:    { bg: "#f8f5ff", color: "#4b0082" },
 };
@@ -40,7 +40,7 @@ export default async function AdminAvisos() {
         >
           <div
             className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
-            style={{ background: "#003876" }}
+            style={{ background: "#1b5e20" }}
           >
             <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -100,7 +100,7 @@ export default async function AdminAvisos() {
             <button
               type="submit"
               className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:-translate-y-px hover:shadow-md"
-              style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+              style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -125,7 +125,7 @@ export default async function AdminAvisos() {
           </div>
           <span
             className="text-xs font-semibold px-2.5 py-1 rounded-full"
-            style={{ background: "#f0f5ff", color: "#003876" }}
+            style={{ background: "#f1f8f1", color: "#1b5e20" }}
           >
             {avisos.length}
           </span>

@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { guardarSiteConfig } from "@/app/actions";
 
 export default async function SiteConfigPage() {
@@ -27,7 +27,7 @@ export default async function SiteConfigPage() {
       {/* Info box */}
       <div
         className="rounded-xl px-4 py-3 mb-6 text-xs leading-relaxed"
-        style={{ background: "#f0f5ff", border: "1px solid #c7d9f5", color: "#003876" }}
+        style={{ background: "#f1f8f1", border: "1px solid #a5d6a5", color: "#1b5e20" }}
       >
         <strong>Proyectos activos</strong> se calcula automáticamente desde la sección Obras
         (cuenta las obras en estado <em>Planificada</em> o <em>En curso</em>). Actualmente: <strong>{proyectosActivos}</strong>.
@@ -103,7 +103,7 @@ export default async function SiteConfigPage() {
         <button
           type="submit"
           className="w-full py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-md"
-          style={{ background: "#003876" }}
+          style={{ background: "#1b5e20" }}
         >
           Guardar cambios
         </button>

@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 const TIPO_CFG: Record<string, {
   label: string;
@@ -9,7 +9,7 @@ const TIPO_CFG: Record<string, {
 }> = {
   URGENTE:     { label: "Urgente",      bg: "#fff0f2", color: "#c8102e", dot: "#c8102e",  leftBorder: "#c8102e" },
   ALERTA:      { label: "Alerta",       bg: "#fff3f0", color: "#d14c00", dot: "#e06030",  leftBorder: "#e06030" },
-  INFORMACION: { label: "Información",  bg: "#f0f5ff", color: "#003876", dot: "#003876",  leftBorder: "#003876" },
+  INFORMACION: { label: "Información",  bg: "#f1f8f1", color: "#1b5e20", dot: "#1b5e20",  leftBorder: "#1b5e20" },
   EVENTO:      { label: "Evento",       bg: "#f0faf5", color: "#1a6b3c", dot: "#2e7d52",  leftBorder: "#2e7d52" },
   ASAMBLEA:    { label: "Asamblea",     bg: "#f8f5ff", color: "#4b0082", dot: "#7c3aed",  leftBorder: "#7c3aed" },
 };
@@ -40,7 +40,7 @@ export default async function Avisos() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
               Tablón de avisos
             </p>
             <h2

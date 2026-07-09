@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+﻿import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import QuickAccess from "@/components/QuickAccess";
 import Directiva from "@/components/Directiva";

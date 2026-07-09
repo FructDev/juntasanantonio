@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useTransition } from "react";
 import { enviarReporte } from "@/app/actions";
@@ -160,14 +160,14 @@ export default function ReportarModal() {
                   <button
                     onClick={() => setDone(false)}
                     className="text-sm font-medium px-4 py-2 rounded-xl transition-colors"
-                    style={{ color: "#003876", background: "#f0f5ff" }}
+                    style={{ color: "#1b5e20", background: "#f1f8f1" }}
                   >
                     Reportar otro
                   </button>
                   <button
                     onClick={close}
                     className="text-sm font-semibold px-4 py-2 rounded-xl text-white"
-                    style={{ background: "#003876" }}
+                    style={{ background: "#1b5e20" }}
                   >
                     Cerrar
                   </button>
@@ -220,15 +220,15 @@ export default function ReportarModal() {
                 <label
                   className="flex items-center gap-3 p-3 rounded-xl border-2 border-dashed cursor-pointer transition-all"
                   style={{
-                    borderColor: fotoName ? "#003876" : "#dde3ec",
-                    background: fotoName ? "#f0f5ff" : "transparent",
+                    borderColor: fotoName ? "#1b5e20" : "#dde3ec",
+                    background: fotoName ? "#f1f8f1" : "transparent",
                   }}
                 >
-                  <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ color: fotoName ? "#003876" : "#8a95a3" }}>
+                  <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ color: fotoName ? "#1b5e20" : "#8a95a3" }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span className="text-sm flex-1" style={{ color: fotoName ? "#003876" : "#8a95a3" }}>
+                  <span className="text-sm flex-1" style={{ color: fotoName ? "#1b5e20" : "#8a95a3" }}>
                     {fotoName ?? "Adjuntar foto (opcional)"}
                   </span>
                   {fotoName && (
@@ -258,15 +258,15 @@ export default function ReportarModal() {
                     Emergencias:{" "}
                     <a href="tel:911" className="font-semibold" style={{ color: "#c8102e" }}>911</a>
                     {" · Presidente: "}
-                    <a href="tel:+18091234567" className="font-semibold" style={{ color: "#003876" }}>(809) 123-4567</a>
+                    <a href="tel:+18091234567" className="font-semibold" style={{ color: "#1b5e20" }}>(809) 123-4567</a>
                   </p>
                   <button
                     type="submit"
                     disabled={isPending}
                     className="flex-shrink-0 flex items-center gap-2 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition-all disabled:opacity-60"
                     style={{
-                      background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #003876 0%, #004e9e 100%)",
-                      boxShadow: isPending ? "none" : "0 4px 14px rgba(0,56,118,0.3)",
+                      background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%)",
+                      boxShadow: isPending ? "none" : "0 4px 14px rgba(27,94,32,0.3)",
                     }}
                   >
                     {isPending ? (
@@ -300,9 +300,9 @@ export default function ReportarModal() {
           font-family: inherit;
         }
         .rfield:focus {
-          border-color: #003876;
+          border-color: #1b5e20;
           background: #fff;
-          box-shadow: 0 0 0 3px rgba(0,56,118,0.08);
+          box-shadow: 0 0 0 3px rgba(27,94,32,0.08);
         }
         .rfield::placeholder { color: #b0bac5; }
         .rfield-select {

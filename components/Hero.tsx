@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 export default async function Hero() {
   const [config, proyectosActivos] = await Promise.all([
@@ -16,7 +16,7 @@ export default async function Hero() {
     <section
       className="relative overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #001f4d 0%, #003876 60%, #004e9e 100%)",
+        background: "linear-gradient(160deg, #0d2e0d 0%, #1b5e20 60%, #2e7d32 100%)",
         paddingTop: "72px",
         paddingBottom: 0,
       }}
@@ -51,7 +51,7 @@ export default async function Hero() {
             >
               Junta de Vecinos
               <br />
-              <span style={{ color: "#7fb3ff" }}>Sector San Antonio</span>
+              <span style={{ color: "#a5d6a5" }}>Sector San Antonio</span>
             </h1>
 
             <p

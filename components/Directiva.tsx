@@ -1,9 +1,9 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 const COLORS: Record<string, { avatar: string; accent: string }> = {
-  azul:  { avatar: "#003876", accent: "#003876" },
+  azul:  { avatar: "#1b5e20", accent: "#1b5e20" },
   rojo:  { avatar: "#c8102e", accent: "#c8102e" },
-  cielo: { avatar: "#0077b6", accent: "#009bde" },
+  cielo: { avatar: "#0077b6", accent: "#43a047" },
 };
 
 export default async function Directiva() {
@@ -17,7 +17,7 @@ export default async function Directiva() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
               Período 2026–2028
             </p>
             <h2
@@ -33,7 +33,7 @@ export default async function Directiva() {
           </div>
           <div
             className="text-xs px-3 py-1.5 rounded-full font-medium flex-shrink-0"
-            style={{ background: "#f0f5ff", color: "#003876", border: "1px solid #c7d9f5" }}
+            style={{ background: "#f1f8f1", color: "#1b5e20", border: "1px solid #a5d6a5" }}
           >
             {miembros.length} miembros activos
           </div>
@@ -50,7 +50,7 @@ export default async function Directiva() {
                 className="group relative rounded-2xl p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
                 style={{
                   background: isPresidente ? "#f5f8ff" : "#fafbfc",
-                  border: `1px solid ${isPresidente ? "#c7d9f5" : "#edf0f5"}`,
+                  border: `1px solid ${isPresidente ? "#a5d6a5" : "#edf0f5"}`,
                   boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
                 }}
               >
@@ -58,7 +58,7 @@ export default async function Directiva() {
                 {isPresidente && (
                   <div
                     className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs font-bold px-2.5 py-0.5 rounded-full text-white whitespace-nowrap"
-                    style={{ background: "#003876", fontSize: "9px", letterSpacing: "0.06em" }}
+                    style={{ background: "#1b5e20", fontSize: "9px", letterSpacing: "0.06em" }}
                   >
                     PRESIDENTE
                   </div>

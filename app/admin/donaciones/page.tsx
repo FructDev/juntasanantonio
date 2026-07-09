@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { guardarDonacionConfig } from "@/app/actions";
 
 export default async function AdminDonaciones() {
@@ -25,7 +25,7 @@ export default async function AdminDonaciones() {
             <div className="px-6 py-4 flex items-center gap-3"
               style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}>
               <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ background: "#003876" }}>
+                style={{ background: "#1b5e20" }}>
                 <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round"
                     d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -45,7 +45,7 @@ export default async function AdminDonaciones() {
                     className="sr-only peer"
                   />
                   <div className="w-10 h-6 rounded-full peer-checked:bg-blue-600 transition-colors"
-                    style={{ background: cfg?.tieneCuenta ? "#003876" : "#e2e8f0" }}>
+                    style={{ background: cfg?.tieneCuenta ? "#1b5e20" : "#e2e8f0" }}>
                   </div>
                   <div className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform peer-checked:translate-x-4" />
                 </div>
@@ -164,7 +164,7 @@ export default async function AdminDonaciones() {
             <button
               type="submit"
               className="flex items-center gap-2 text-white text-sm font-semibold px-6 py-2.5 rounded-xl hover:shadow-md transition-all hover:-translate-y-px"
-              style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+              style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round"

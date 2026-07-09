@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 
 function fmt(n: number) {
   return new Intl.NumberFormat("es-DO", {
@@ -24,7 +24,7 @@ export default async function Finanzas() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
             Actualizado mensualmente
           </p>
           <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
@@ -40,8 +40,8 @@ export default async function Finanzas() {
           <div
             className="rounded-2xl p-7 relative overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, #001f4d 0%, #003876 100%)",
-              boxShadow: "0 4px 24px rgba(0,56,118,0.25)",
+              background: "linear-gradient(135deg, #0d2e0d 0%, #1b5e20 100%)",
+              boxShadow: "0 4px 24px rgba(27,94,32,0.25)",
             }}
           >
             {/* Background circles */}
@@ -124,7 +124,7 @@ export default async function Finanzas() {
                   {resumen.mes} {resumen.anio}
                 </div>
               </div>
-              <div className="text-sm font-black" style={{ color: "#003876" }}>
+              <div className="text-sm font-black" style={{ color: "#1b5e20" }}>
                 {fmt(resumen.gastos)}
               </div>
             </div>
@@ -138,14 +138,14 @@ export default async function Finanzas() {
                       <span className="text-sm font-medium" style={{ color: "#2d3748" }}>
                         {g.nombre}
                       </span>
-                      <span className="text-sm font-bold" style={{ color: "#003876" }}>
+                      <span className="text-sm font-bold" style={{ color: "#1b5e20" }}>
                         {fmt(g.monto)}
                       </span>
                     </div>
                     <div className="h-1.5 rounded-full" style={{ background: "#edf0f5" }}>
                       <div
                         className="h-full rounded-full transition-all"
-                        style={{ width: `${barPct}%`, background: "#003876" }}
+                        style={{ width: `${barPct}%`, background: "#1b5e20" }}
                       />
                     </div>
                   </div>
@@ -158,7 +158,7 @@ export default async function Finanzas() {
               style={{ borderTop: "1px solid #f0f4f8", color: "#8a95a3", background: "#fafbfc" }}
             >
               Estado de caja completo disponible en la sección de{" "}
-              <a href="#documentos" className="font-semibold" style={{ color: "#003876" }}>
+              <a href="#documentos" className="font-semibold" style={{ color: "#1b5e20" }}>
                 Documentos
               </a>
             </div>

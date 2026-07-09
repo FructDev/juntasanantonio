@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import {
   crearFinanza, actualizarFinanza, eliminarFinanza,
   agregarGastoItem, eliminarGastoItem,
@@ -69,7 +69,7 @@ export default async function AdminFinanzas() {
           className="px-6 py-4 flex items-center gap-2"
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
-          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#003876" }}>
+          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#1b5e20" }}>
             <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
             </svg>
@@ -129,7 +129,7 @@ export default async function AdminFinanzas() {
             <button
               type="submit"
               className="text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:shadow-md transition-all hover:-translate-y-px"
-              style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+              style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
             >
               Crear período
             </button>
@@ -222,7 +222,7 @@ export default async function AdminFinanzas() {
                   <button
                     type="submit"
                     className="text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
-                    style={{ background: "#f0f5ff", color: "#003876" }}
+                    style={{ background: "#f1f8f1", color: "#1b5e20" }}
                   >
                     Guardar cifras
                   </button>
@@ -254,10 +254,10 @@ export default async function AdminFinanzas() {
                         <div className="flex-1 min-w-0">
                           <div className="text-sm font-medium truncate" style={{ color: "#0e1b2e" }}>{g.nombre}</div>
                         </div>
-                        <span className="text-sm font-semibold flex-shrink-0" style={{ color: "#003876" }}>
+                        <span className="text-sm font-semibold flex-shrink-0" style={{ color: "#1b5e20" }}>
                           RD$ {g.monto.toLocaleString("es-DO")}
                         </span>
-                        <span className="text-xs flex-shrink-0 px-1.5 py-0.5 rounded-full" style={{ background: "#f0f5ff", color: "#003876" }}>
+                        <span className="text-xs flex-shrink-0 px-1.5 py-0.5 rounded-full" style={{ background: "#f1f8f1", color: "#1b5e20" }}>
                           {g.porcentaje}%
                         </span>
                         <form

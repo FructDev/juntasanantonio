@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { actualizarEstadoReporte } from "@/app/actions";
 
 const estados = ["PENDIENTE", "EN_PROCESO", "RESUELTO"];
@@ -92,7 +92,7 @@ export default async function AdminReportes() {
                       </span>
                       <span
                         className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
-                        style={{ background: "#f0f5ff", color: "#003876" }}
+                        style={{ background: "#f1f8f1", color: "#1b5e20" }}
                       >
                         {r.tipo}
                       </span>
@@ -120,7 +120,7 @@ export default async function AdminReportes() {
                         {r.telefono && (
                           <>
                             {" · "}
-                            <a href={`tel:${r.telefono.replace(/\D/g, "")}`} style={{ color: "#003876" }}>
+                            <a href={`tel:${r.telefono.replace(/\D/g, "")}`} style={{ color: "#1b5e20" }}>
                               {r.telefono}
                             </a>
                           </>
@@ -161,7 +161,7 @@ export default async function AdminReportes() {
                       <button
                         type="submit"
                         className="text-xs px-3 py-1.5 rounded-lg text-white font-medium transition-all hover:-translate-y-px hover:shadow-sm"
-                        style={{ background: "#003876" }}
+                        style={{ background: "#1b5e20" }}
                       >
                         Guardar
                       </button>

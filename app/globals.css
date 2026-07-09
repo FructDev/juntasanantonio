@@ -1,11 +1,11 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
-  --color-azul: #003876;
-  --color-azul-med: #004e9e;
-  --color-azul-light: #e8f0fb;
-  --color-azul-lighter: #f0f5ff;
-  --color-azul-cielo: #009bde;
+  --color-azul: #1b5e20;
+  --color-azul-med: #2e7d32;
+  --color-azul-light: #e8f5e9;
+  --color-azul-lighter: #f1f8f1;
+  --color-azul-cielo: #43a047;
   --color-rojo: #c8102e;
   --color-rojo-light: #fff0f2;
   --color-texto: #1a1a2e;

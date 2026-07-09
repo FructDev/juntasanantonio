@@ -1,10 +1,10 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import { crearObra, actualizarEstadoObra, eliminarObra } from "@/app/actions";
 
 const estadosObra = ["PLANIFICADA", "EN_CURSO", "COMPLETADA"];
 
 const estadoCfg: Record<string, { bg: string; color: string; label: string }> = {
-  PLANIFICADA: { bg: "#f0f5ff", color: "#003876", label: "Planificada" },
+  PLANIFICADA: { bg: "#f1f8f1", color: "#1b5e20", label: "Planificada" },
   EN_CURSO:    { bg: "#fffbf0", color: "#92600a", label: "En curso" },
   COMPLETADA:  { bg: "#f0faf5", color: "#1a6b3c", label: "Completada" },
 };
@@ -39,7 +39,7 @@ export default async function AdminObras() {
           className="px-6 py-4 flex items-center gap-2"
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
-          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#003876" }}>
+          <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: "#1b5e20" }}>
             <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
             </svg>
@@ -119,7 +119,7 @@ export default async function AdminObras() {
             <button
               type="submit"
               className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:-translate-y-px hover:shadow-md"
-              style={{ background: "#003876", boxShadow: "0 2px 8px rgba(0,56,118,0.25)" }}
+              style={{ background: "#1b5e20", boxShadow: "0 2px 8px rgba(27,94,32,0.25)" }}
             >
               Publicar obra
             </button>
@@ -137,7 +137,7 @@ export default async function AdminObras() {
           style={{ borderBottom: "1px solid #f0f4f8", background: "#fafbfc" }}
         >
           <div className="text-sm font-bold" style={{ color: "#0e1b2e" }}>Obras activas</div>
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: "#f0f5ff", color: "#003876" }}>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: "#f1f8f1", color: "#1b5e20" }}>
             {obras.length}
           </span>
         </div>
@@ -156,7 +156,7 @@ export default async function AdminObras() {
                     {cfg.label}
                   </span>
                   {obra.costo != null && (
-                    <span className="text-xs font-semibold" style={{ color: "#003876" }}>{fmt(obra.costo)}</span>
+                    <span className="text-xs font-semibold" style={{ color: "#1b5e20" }}>{fmt(obra.costo)}</span>
                   )}
                 </div>
                 <div className="text-sm font-semibold mb-0.5" style={{ color: "#0e1b2e" }}>{obra.titulo}</div>
@@ -177,7 +177,7 @@ export default async function AdminObras() {
                       <option key={e} value={e}>{estadoCfg[e]?.label ?? e}</option>
                     ))}
                   </select>
-                  <button type="submit" className="text-xs px-3 py-1.5 rounded-lg text-white font-medium" style={{ background: "#003876" }}>
+                  <button type="submit" className="text-xs px-3 py-1.5 rounded-lg text-white font-medium" style={{ background: "#1b5e20" }}>
                     Guardar
                   </button>
                 </form>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useTransition } from "react";
 import { enviarSugerencia } from "@/app/actions";
@@ -33,7 +33,7 @@ export default function Sugerencias() {
         <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
           {/* Left — info */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#003876" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#1b5e20" }}>
               Tu opinión cuenta
             </p>
             <h2 className="text-3xl font-black mb-4" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
@@ -54,7 +54,7 @@ export default function Sugerencias() {
                 <div key={item.t} className="flex items-start gap-3">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-sm"
-                    style={{ background: "#f0f5ff" }}
+                    style={{ background: "#f1f8f1" }}
                   >
                     {item.ico}
                   </div>
@@ -91,7 +91,7 @@ export default function Sugerencias() {
                   <button
                     onClick={() => setDone(false)}
                     className="text-sm font-medium px-4 py-2 rounded-xl transition-colors"
-                    style={{ color: "#003876", background: "#f0f5ff" }}
+                    style={{ color: "#1b5e20", background: "#f1f8f1" }}
                   >
                     Enviar otra sugerencia
                   </button>
@@ -148,8 +148,8 @@ export default function Sugerencias() {
                       disabled={isPending}
                       className="w-full flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl text-sm transition-all disabled:opacity-60"
                       style={{
-                        background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #003876 0%, #004e9e 100%)",
-                        boxShadow: isPending ? "none" : "0 4px 14px rgba(0,56,118,0.28)",
+                        background: isPending ? "#5b7fa6" : "linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%)",
+                        boxShadow: isPending ? "none" : "0 4px 14px rgba(27,94,32,0.28)",
                       }}
                     >
                       {isPending ? (
@@ -191,9 +191,9 @@ export default function Sugerencias() {
           font-family: inherit;
         }
         .sfield:focus {
-          border-color: #003876;
+          border-color: #1b5e20;
           background: #fff;
-          box-shadow: 0 0 0 3px rgba(0,56,118,0.08);
+          box-shadow: 0 0 0 3px rgba(27,94,32,0.08);
         }
         .sfield::placeholder { color: #b0bac5; }
       `}</style>

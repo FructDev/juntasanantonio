@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+﻿import { prisma } from "@/lib/prisma";
 import DocumentosFiltro from "./DocumentosFiltro";
 
 export default async function Documentos() {
@@ -13,7 +13,7 @@ export default async function Documentos() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#003876" }}>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
             Acceso público
           </p>
           <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>
