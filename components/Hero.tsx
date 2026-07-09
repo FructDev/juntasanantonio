@@ -116,16 +116,16 @@ export default async function Hero() {
             {/* Stats */}
             <div className="flex flex-wrap gap-8 pb-2">
               {[
-                { n: config.familias,    l: "Familias" },
-                { n: config.habitantes,  l: "Habitantes" },
-                { n: config.anosActivos, l: "Años activos" },
-                { n: proyectosActivos,   l: "Proyectos activos" },
-              ].map(({ n, l }) => (
+                { n: config.familias,    l: "Familias",          accent: "#4ade80" },
+                { n: config.habitantes,  l: "Habitantes",         accent: "#93c5fd" },
+                { n: config.anosActivos, l: "Años activos",       accent: "#fcd34d" },
+                { n: proyectosActivos,   l: "Proyectos activos",  accent: "#fdba74" },
+              ].map(({ n, l, accent }) => (
                 <div key={l}>
-                  <div className="text-3xl font-black text-white leading-none" style={{ letterSpacing: "-0.04em" }}>
+                  <div className="text-3xl font-black leading-none" style={{ letterSpacing: "-0.04em", color: accent }}>
                     {n}
                   </div>
-                  <div className="text-xs mt-1 uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
+                  <div className="text-xs mt-1 uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.45)" }}>
                     {l}
                   </div>
                 </div>

@@ -17,7 +17,7 @@ export default async function Directiva() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1565c0" }}>
               Período 2026–2028
             </p>
             <h2
@@ -33,7 +33,7 @@ export default async function Directiva() {
           </div>
           <div
             className="text-xs px-3 py-1.5 rounded-full font-medium flex-shrink-0"
-            style={{ background: "#f1f8f1", color: "#1b5e20", border: "1px solid #a5d6a5" }}
+            style={{ background: "#e3f2fd", color: "#1565c0", border: "1px solid #90caf9" }}
           >
             {miembros.length} miembros activos
           </div>

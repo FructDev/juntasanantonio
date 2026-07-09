@@ -55,7 +55,7 @@ export default async function Gestiones() {
         {/* Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#f5a000" }}>
               Transparencia
             </p>
             <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>

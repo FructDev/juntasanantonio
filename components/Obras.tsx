@@ -32,7 +32,7 @@ export default async function Obras() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#1b5e20" }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#f5a000" }}>
               Gestión activa
             </p>
             <h2 className="text-3xl font-black mb-2" style={{ color: "#0e1b2e", letterSpacing: "-0.03em" }}>

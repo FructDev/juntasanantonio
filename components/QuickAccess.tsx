@@ -18,8 +18,8 @@
         <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
       </svg>
     ),
-    iconBg: "#f1f8f1",
-    iconColor: "#1b5e20",
+    iconBg: "#e3f2fd",
+    iconColor: "#1565c0",
     lbl: "Avisos del barrio",
     sub: "Cortes, asambleas, noticias",
   },
@@ -30,8 +30,8 @@
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
-    iconBg: "#f0faf5",
-    iconColor: "#1a6b3c",
+    iconBg: "#fff8e1",
+    iconColor: "#f5a000",
     lbl: "Documentos",
     sub: "Actas, cartas, estado de caja",
   },
@@ -42,8 +42,8 @@
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
       </svg>
     ),
-    iconBg: "#fffbf0",
-    iconColor: "#92600a",
+    iconBg: "#fffde7",
+    iconColor: "#b8860a",
     lbl: "Emergencias",
     sub: "Policía, INAPA, EDES-SUR",
   },

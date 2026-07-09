@@ -1,18 +1,34 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
-  --color-azul: #1b5e20;
-  --color-azul-med: #2e7d32;
-  --color-azul-light: #e8f5e9;
-  --color-azul-lighter: #f1f8f1;
-  --color-azul-cielo: #43a047;
-  --color-rojo: #c8102e;
-  --color-rojo-light: #fff0f2;
-  --color-texto: #1a1a2e;
-  --color-texto-s: #4a5568;
-  --color-borde: #d1d9e6;
-  --color-fondo: #f5f7fa;
-  --color-fondo2: #eef2f8;
+  /* ── Paleta del logo ── */
+  --color-verde:        #1a7a1a;
+  --color-verde-med:    #38a838;
+  --color-verde-light:  #43a047;
+  --color-verde-bg:     #e8f5e9;
+  --color-verde-bg2:    #f1f8f1;
+
+  --color-azul:         #1565c0;
+  --color-azul-med:     #1976d2;
+  --color-azul-bg:      #e3f2fd;
+
+  --color-naranja:      #f5a000;
+  --color-naranja-med:  #f57c00;
+  --color-naranja-bg:   #fff8e1;
+
+  --color-dorado:       #f9c21a;
+  --color-dorado-dark:  #b8860a;
+  --color-dorado-bg:    #fffde7;
+
+  /* ── Semánticos ── */
+  --color-rojo:         #c8102e;
+  --color-rojo-light:   #fff0f2;
+  --color-texto:        #0e1b2e;
+  --color-texto-s:      #5a6678;
+  --color-borde:        #edf0f5;
+  --color-fondo:        #f5f7fa;
+  --color-fondo2:       #eef2f8;
+
   --font-sans: "Inter", sans-serif;
 }
 
@@ -31,28 +47,11 @@ body {
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-.afu {
-  animation: fadeUp 0.55s ease both;
-}
-.d1 {
-  animation-delay: 0.1s;
-}
-.d2 {
-  animation-delay: 0.2s;
-}
-.d3 {
-  animation-delay: 0.3s;
-}
-.d4 {
-  animation-delay: 0.4s;
-}
+.afu { animation: fadeUp 0.55s ease both; }
+.d1  { animation-delay: 0.1s; }
+.d2  { animation-delay: 0.2s; }
+.d3  { animation-delay: 0.3s; }
+.d4  { animation-delay: 0.4s; }
